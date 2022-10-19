@@ -35,6 +35,7 @@ public class ApplicantInformationService {
 
 		ApplicantInformation applicantInformation;
 		try {
+			
 			applicantInformationData.setName(applicantInfo.getName());
 			System.out.println("name====" + applicantInfo.getName());
 			applicantInformationData.setPmjjyMoney(applicantInfo.getPmjjyMoney());
@@ -125,7 +126,7 @@ public class ApplicantInformationService {
 			System.out.println("id === " + applicantInformationData.getApplicantInfoId());
 
 			applicantInformation = new ApplicantInformation();
-			applicantInformation.setId(BigDecimal.valueOf(applicantInformationData.getApplicantInfoId()));
+			applicantInformation.setId(applicantInformationData.getApplicantInfoId());
 			
 			return applicantInformation;
 
@@ -137,32 +138,32 @@ public class ApplicantInformationService {
 
 	}
 
-	public ApplicantInformation getApplicantInformationById(long applicantId) throws Exception {
+	public ApplicantInformation getApplicantInformationById(int applicantId) throws Exception {
 
 		applicantInformationDataOptional = applicantInformationRepository.findById(applicantId);
 
 		if (applicantInformationDataOptional.isPresent()) {
 			applicantInformationData = applicantInformationDataOptional.get();
 			ApplicantInformation applicantInformation = new ApplicantInformation();
-			applicantInformation.setId(BigDecimal.valueOf(applicantInformationData.getApplicantInfoId()));
+			applicantInformation.setId(applicantInformationData.getApplicantInfoId());
 			applicantInformation.setName(applicantInformationData.getName());
 			applicantInformation.setPmjjyMoney(applicantInformationData.isPmjjyMoney());
-			applicantInformation.setKaryaSwaroop(BigDecimal.valueOf(applicantInformationData.getKaryaSwaroop()));
-			applicantInformation.setKaryaPrakriti1(BigDecimal.valueOf(applicantInformationData.getKaryaPrakriti1()));
-			applicantInformation.setKaryaPrakriti2(BigDecimal.valueOf(applicantInformationData.getKaryaPrakriti2()));
-			applicantInformation.setKaryaPrakriti3(BigDecimal.valueOf(applicantInformationData.getKaryaPrakriti3()));
+			applicantInformation.setKaryaSwaroop(applicantInformationData.getKaryaSwaroop());
+			applicantInformation.setKaryaPrakriti1(applicantInformationData.getKaryaPrakriti1());
+			applicantInformation.setKaryaPrakriti2(applicantInformationData.getKaryaPrakriti2());
+			applicantInformation.setKaryaPrakriti3(applicantInformationData.getKaryaPrakriti3());
 			applicantInformation.setName(applicantInformationData.getName());
 			applicantInformation.nameasAADHAR(applicantInformationData.getNameAsAADHAR());
 			applicantInformation.setFatherNameorHusbandName(applicantInformationData.getFatherNameorHusbandName());
-			applicantInformation.setFatherORhusband(BigDecimal.valueOf(applicantInformationData.getFatherORhusband()));
+			applicantInformation.setFatherORhusband(applicantInformationData.getFatherORhusband());
 			applicantInformation.setMotherName(applicantInformationData.getMotherName());
-			applicantInformation.setGender(BigDecimal.valueOf(applicantInformationData.getGender()));
-			applicantInformation.setMarriage(BigDecimal.valueOf(applicantInformationData.getMarriage()));
+			applicantInformation.setGender(applicantInformationData.getGender());
+			applicantInformation.setMarriage(applicantInformationData.getMarriage());
 			System.out.println("getDob====" + applicantInformationData.getDob());
 
 			applicantInformation.setDob(applicantInformationData.getDob().toString());
-			applicantInformation.setAge(BigDecimal.valueOf(applicantInformationData.getAge()));
-			applicantInformation.setCaste(BigDecimal.valueOf(applicantInformationData.getCaste()));
+			applicantInformation.setAge(applicantInformationData.getAge());
+			applicantInformation.setCaste(applicantInformationData.getCaste());
 			applicantInformation.setManrega(applicantInformationData.isManrega());
 			applicantInformation.setRation(applicantInformationData.getRation());
 			applicantInformation.setVoterId(applicantInformationData.getVoterId());
@@ -182,24 +183,24 @@ public class ApplicantInformationService {
 			for (ApplicantAddressData applicantAddressData : applicantAddressDataList) {
 				if("PERMANENT".equals(applicantAddressData.getAddressType())) { 
 					applicantPermAddress.setAddress(applicantAddressData.getAddress());
-					applicantPermAddress.setDistrict(BigDecimal.valueOf(applicantAddressData.getDistrict()));
-					applicantPermAddress.setSelectedAddressType(BigDecimal.valueOf(applicantAddressData.getSelectedAddressType()));
-					applicantPermAddress.setVidhansabhaArea(BigDecimal.valueOf(applicantAddressData.getVidhansabhaArea()));
-					applicantPermAddress.setVikasKhand(BigDecimal.valueOf(applicantAddressData.getVikasKhand()));
-					applicantPermAddress.setPanchayat(BigDecimal.valueOf(applicantAddressData.getPanchayat()));
-					applicantPermAddress.setWard(BigDecimal.valueOf(applicantAddressData.getWard()));
+					applicantPermAddress.setDistrict(applicantAddressData.getDistrict());
+					applicantPermAddress.setSelectedAddressType(applicantAddressData.getSelectedAddressType());
+					applicantPermAddress.setVidhansabhaArea(applicantAddressData.getVidhansabhaArea());
+					applicantPermAddress.setVikasKhand(applicantAddressData.getVikasKhand());
+					applicantPermAddress.setPanchayat(applicantAddressData.getPanchayat());
+					applicantPermAddress.setWard(applicantAddressData.getWard());
 					applicantPermAddress.setHouseNo(applicantAddressData.getHouseNo());
 
 					
 				}else {
 					
 					applicantCurrAddress.setAddress(applicantAddressData.getAddress());
-					applicantCurrAddress.setDistrict(BigDecimal.valueOf(applicantAddressData.getDistrict()));
-					applicantCurrAddress.setSelectedAddressType(BigDecimal.valueOf(applicantAddressData.getSelectedAddressType()));
-					applicantCurrAddress.setVidhansabhaArea(BigDecimal.valueOf(applicantAddressData.getVidhansabhaArea()));
-					applicantCurrAddress.setVikasKhand(BigDecimal.valueOf(applicantAddressData.getVikasKhand()));
-					applicantCurrAddress.setPanchayat(BigDecimal.valueOf(applicantAddressData.getPanchayat()));
-					applicantCurrAddress.setWard(BigDecimal.valueOf(applicantAddressData.getWard()));
+					applicantCurrAddress.setDistrict(applicantAddressData.getDistrict());
+					applicantCurrAddress.setSelectedAddressType(applicantAddressData.getSelectedAddressType());
+					applicantCurrAddress.setVidhansabhaArea(applicantAddressData.getVidhansabhaArea());
+					applicantCurrAddress.setVikasKhand(applicantAddressData.getVikasKhand());
+					applicantCurrAddress.setPanchayat(applicantAddressData.getPanchayat());
+					applicantCurrAddress.setWard(applicantAddressData.getWard());
 					applicantCurrAddress.setHouseNo(applicantAddressData.getHouseNo());
 					applicantCurrAddress.setMobile1(applicantAddressData.getMobile1());
 					applicantCurrAddress.setMobile2(applicantAddressData.getMobile2());
@@ -225,12 +226,12 @@ public class ApplicantInformationService {
 		applicantInformationData = new ApplicantInformationData();
 
 		applicantInformationData.setName(applicantInfo.getName());
-		applicantInformationData.setApplicantInfoId(applicantInfo.getId().longValue());
+		applicantInformationData.setApplicantInfoId(applicantInfo.getId());
 
 		applicantInformationRepository.save(applicantInformationData);
 
 		applicantInformation = new ApplicantInformation();
-		applicantInformation.setId(BigDecimal.valueOf(applicantInformationData.getApplicantInfoId()));
+		applicantInformation.setId(applicantInformationData.getApplicantInfoId());
 		applicantInformation.setName(applicantInformationData.getName());
 
 		return applicantInformation;

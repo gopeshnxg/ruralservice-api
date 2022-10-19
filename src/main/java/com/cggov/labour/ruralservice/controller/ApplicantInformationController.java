@@ -28,18 +28,18 @@ public class ApplicantInformationController {
 	 * 
 	*/
 	@GetMapping(value = "/applicantinformation/{applicantId}" )
-	ResponseEntity<ApplicantInformation> getApplicantInformationById(@PathVariable long applicantId) {
+	ResponseEntity<Object> getApplicantInformationById(@PathVariable int applicantId) {
 		
 		
 		try {
 			ApplicantInformation applicantInformation = applicantInformationService.getApplicantInformationById(applicantId);
 			
 			
-			return new ResponseEntity<>(applicantInformation, HttpStatus.CREATED);
-		} catch (Exception e) {
-
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+			return new ResponseEntity<>(applicantInformation, HttpStatus.OK);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.NOT_FOUND, null);
+        }
 		
 		
 	}

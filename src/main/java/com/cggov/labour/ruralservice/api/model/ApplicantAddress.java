@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -13,26 +12,26 @@ import javax.validation.constraints.*;
 /**
  * ApplicantAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T16:38:39.443431-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T18:10:10.473488-04:00[America/New_York]")
 
 public class ApplicantAddress   {
   @JsonProperty("district")
-  private BigDecimal district;
+  private Integer district;
 
   @JsonProperty("selectedAddressType")
-  private BigDecimal selectedAddressType;
+  private Integer selectedAddressType;
 
   @JsonProperty("vidhansabhaArea")
-  private BigDecimal vidhansabhaArea;
+  private Integer vidhansabhaArea;
 
   @JsonProperty("vikasKhand")
-  private BigDecimal vikasKhand;
+  private Integer vikasKhand;
 
   @JsonProperty("panchayat")
-  private BigDecimal panchayat;
+  private Integer panchayat;
 
   @JsonProperty("ward")
-  private BigDecimal ward;
+  private Integer ward;
 
   @JsonProperty("address")
   private String address;
@@ -46,7 +45,7 @@ public class ApplicantAddress   {
   @JsonProperty("mobile2")
   private String mobile2;
 
-  public ApplicantAddress district(BigDecimal district) {
+  public ApplicantAddress district(Integer district) {
     this.district = district;
     return this;
   }
@@ -58,17 +57,16 @@ public class ApplicantAddress   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getDistrict() {
+  public Integer getDistrict() {
     return district;
   }
 
-  public void setDistrict(BigDecimal district) {
+  public void setDistrict(Integer district) {
     this.district = district;
   }
 
-  public ApplicantAddress selectedAddressType(BigDecimal selectedAddressType) {
+  public ApplicantAddress selectedAddressType(Integer selectedAddressType) {
     this.selectedAddressType = selectedAddressType;
     return this;
   }
@@ -79,17 +77,16 @@ public class ApplicantAddress   {
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 
-  public BigDecimal getSelectedAddressType() {
+  public Integer getSelectedAddressType() {
     return selectedAddressType;
   }
 
-  public void setSelectedAddressType(BigDecimal selectedAddressType) {
+  public void setSelectedAddressType(Integer selectedAddressType) {
     this.selectedAddressType = selectedAddressType;
   }
 
-  public ApplicantAddress vidhansabhaArea(BigDecimal vidhansabhaArea) {
+  public ApplicantAddress vidhansabhaArea(Integer vidhansabhaArea) {
     this.vidhansabhaArea = vidhansabhaArea;
     return this;
   }
@@ -101,17 +98,16 @@ public class ApplicantAddress   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getVidhansabhaArea() {
+  public Integer getVidhansabhaArea() {
     return vidhansabhaArea;
   }
 
-  public void setVidhansabhaArea(BigDecimal vidhansabhaArea) {
+  public void setVidhansabhaArea(Integer vidhansabhaArea) {
     this.vidhansabhaArea = vidhansabhaArea;
   }
 
-  public ApplicantAddress vikasKhand(BigDecimal vikasKhand) {
+  public ApplicantAddress vikasKhand(Integer vikasKhand) {
     this.vikasKhand = vikasKhand;
     return this;
   }
@@ -123,17 +119,16 @@ public class ApplicantAddress   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getVikasKhand() {
+  public Integer getVikasKhand() {
     return vikasKhand;
   }
 
-  public void setVikasKhand(BigDecimal vikasKhand) {
+  public void setVikasKhand(Integer vikasKhand) {
     this.vikasKhand = vikasKhand;
   }
 
-  public ApplicantAddress panchayat(BigDecimal panchayat) {
+  public ApplicantAddress panchayat(Integer panchayat) {
     this.panchayat = panchayat;
     return this;
   }
@@ -145,17 +140,16 @@ public class ApplicantAddress   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getPanchayat() {
+  public Integer getPanchayat() {
     return panchayat;
   }
 
-  public void setPanchayat(BigDecimal panchayat) {
+  public void setPanchayat(Integer panchayat) {
     this.panchayat = panchayat;
   }
 
-  public ApplicantAddress ward(BigDecimal ward) {
+  public ApplicantAddress ward(Integer ward) {
     this.ward = ward;
     return this;
   }
@@ -167,13 +161,12 @@ public class ApplicantAddress   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getWard() {
+  public Integer getWard() {
     return ward;
   }
 
-  public void setWard(BigDecimal ward) {
+  public void setWard(Integer ward) {
     this.ward = ward;
   }
 

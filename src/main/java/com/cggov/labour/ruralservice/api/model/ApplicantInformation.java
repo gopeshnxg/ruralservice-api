@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,23 +13,23 @@ import javax.validation.constraints.*;
 /**
  * ApplicantInformation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T16:38:39.443431-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T18:10:10.473488-04:00[America/New_York]")
 
 public class ApplicantInformation   {
   @JsonProperty("pmjjyMoney")
   private Boolean pmjjyMoney;
 
   @JsonProperty("karyaSwaroop")
-  private BigDecimal karyaSwaroop;
+  private Integer karyaSwaroop;
 
   @JsonProperty("karyaPrakriti1")
-  private BigDecimal karyaPrakriti1;
+  private Integer karyaPrakriti1;
 
   @JsonProperty("karyaPrakriti2")
-  private BigDecimal karyaPrakriti2;
+  private Integer karyaPrakriti2;
 
   @JsonProperty("karyaPrakriti3")
-  private BigDecimal karyaPrakriti3;
+  private Integer karyaPrakriti3;
 
   @JsonProperty("name")
   private String name;
@@ -42,25 +41,25 @@ public class ApplicantInformation   {
   private String fatherNameorHusbandName;
 
   @JsonProperty("fatherORhusband")
-  private BigDecimal fatherORhusband;
+  private Integer fatherORhusband;
 
   @JsonProperty("motherName")
   private String motherName;
 
   @JsonProperty("gender")
-  private BigDecimal gender;
+  private Integer gender;
 
   @JsonProperty("marriage")
-  private BigDecimal marriage;
+  private Integer marriage;
 
   @JsonProperty("dob")
   private String dob;
 
   @JsonProperty("age")
-  private BigDecimal age;
+  private Integer age;
 
   @JsonProperty("caste")
-  private BigDecimal caste;
+  private Integer caste;
 
   @JsonProperty("manrega")
   private Boolean manrega;
@@ -102,7 +101,7 @@ public class ApplicantInformation   {
   private ApplicantAddress permanentAddress;
 
   @JsonProperty("id")
-  private BigDecimal id;
+  private Integer id;
 
   public ApplicantInformation pmjjyMoney(Boolean pmjjyMoney) {
     this.pmjjyMoney = pmjjyMoney;
@@ -124,7 +123,7 @@ public class ApplicantInformation   {
     this.pmjjyMoney = pmjjyMoney;
   }
 
-  public ApplicantInformation karyaSwaroop(BigDecimal karyaSwaroop) {
+  public ApplicantInformation karyaSwaroop(Integer karyaSwaroop) {
     this.karyaSwaroop = karyaSwaroop;
     return this;
   }
@@ -136,17 +135,16 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=2) 
-  public BigDecimal getKaryaSwaroop() {
+  public Integer getKaryaSwaroop() {
     return karyaSwaroop;
   }
 
-  public void setKaryaSwaroop(BigDecimal karyaSwaroop) {
+  public void setKaryaSwaroop(Integer karyaSwaroop) {
     this.karyaSwaroop = karyaSwaroop;
   }
 
-  public ApplicantInformation karyaPrakriti1(BigDecimal karyaPrakriti1) {
+  public ApplicantInformation karyaPrakriti1(Integer karyaPrakriti1) {
     this.karyaPrakriti1 = karyaPrakriti1;
     return this;
   }
@@ -158,17 +156,16 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getKaryaPrakriti1() {
+  public Integer getKaryaPrakriti1() {
     return karyaPrakriti1;
   }
 
-  public void setKaryaPrakriti1(BigDecimal karyaPrakriti1) {
+  public void setKaryaPrakriti1(Integer karyaPrakriti1) {
     this.karyaPrakriti1 = karyaPrakriti1;
   }
 
-  public ApplicantInformation karyaPrakriti2(BigDecimal karyaPrakriti2) {
+  public ApplicantInformation karyaPrakriti2(Integer karyaPrakriti2) {
     this.karyaPrakriti2 = karyaPrakriti2;
     return this;
   }
@@ -180,17 +177,16 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getKaryaPrakriti2() {
+  public Integer getKaryaPrakriti2() {
     return karyaPrakriti2;
   }
 
-  public void setKaryaPrakriti2(BigDecimal karyaPrakriti2) {
+  public void setKaryaPrakriti2(Integer karyaPrakriti2) {
     this.karyaPrakriti2 = karyaPrakriti2;
   }
 
-  public ApplicantInformation karyaPrakriti3(BigDecimal karyaPrakriti3) {
+  public ApplicantInformation karyaPrakriti3(Integer karyaPrakriti3) {
     this.karyaPrakriti3 = karyaPrakriti3;
     return this;
   }
@@ -201,13 +197,12 @@ public class ApplicantInformation   {
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getKaryaPrakriti3() {
+  public Integer getKaryaPrakriti3() {
     return karyaPrakriti3;
   }
 
-  public void setKaryaPrakriti3(BigDecimal karyaPrakriti3) {
+  public void setKaryaPrakriti3(Integer karyaPrakriti3) {
     this.karyaPrakriti3 = karyaPrakriti3;
   }
 
@@ -274,7 +269,7 @@ public class ApplicantInformation   {
     this.fatherNameorHusbandName = fatherNameorHusbandName;
   }
 
-  public ApplicantInformation fatherORhusband(BigDecimal fatherORhusband) {
+  public ApplicantInformation fatherORhusband(Integer fatherORhusband) {
     this.fatherORhusband = fatherORhusband;
     return this;
   }
@@ -286,13 +281,12 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=1) 
-  public BigDecimal getFatherORhusband() {
+  public Integer getFatherORhusband() {
     return fatherORhusband;
   }
 
-  public void setFatherORhusband(BigDecimal fatherORhusband) {
+  public void setFatherORhusband(Integer fatherORhusband) {
     this.fatherORhusband = fatherORhusband;
   }
 
@@ -317,7 +311,7 @@ public class ApplicantInformation   {
     this.motherName = motherName;
   }
 
-  public ApplicantInformation gender(BigDecimal gender) {
+  public ApplicantInformation gender(Integer gender) {
     this.gender = gender;
     return this;
   }
@@ -329,17 +323,16 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=1) 
-  public BigDecimal getGender() {
+  public Integer getGender() {
     return gender;
   }
 
-  public void setGender(BigDecimal gender) {
+  public void setGender(Integer gender) {
     this.gender = gender;
   }
 
-  public ApplicantInformation marriage(BigDecimal marriage) {
+  public ApplicantInformation marriage(Integer marriage) {
     this.marriage = marriage;
     return this;
   }
@@ -351,13 +344,12 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=1) 
-  public BigDecimal getMarriage() {
+  public Integer getMarriage() {
     return marriage;
   }
 
-  public void setMarriage(BigDecimal marriage) {
+  public void setMarriage(Integer marriage) {
     this.marriage = marriage;
   }
 
@@ -382,7 +374,7 @@ public class ApplicantInformation   {
     this.dob = dob;
   }
 
-  public ApplicantInformation age(BigDecimal age) {
+  public ApplicantInformation age(Integer age) {
     this.age = age;
     return this;
   }
@@ -394,17 +386,16 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=3) 
-  public BigDecimal getAge() {
+  public Integer getAge() {
     return age;
   }
 
-  public void setAge(BigDecimal age) {
+  public void setAge(Integer age) {
     this.age = age;
   }
 
-  public ApplicantInformation caste(BigDecimal caste) {
+  public ApplicantInformation caste(Integer caste) {
     this.caste = caste;
     return this;
   }
@@ -416,13 +407,12 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=1) 
-  public BigDecimal getCaste() {
+  public Integer getCaste() {
     return caste;
   }
 
-  public void setCaste(BigDecimal caste) {
+  public void setCaste(Integer caste) {
     this.caste = caste;
   }
 
@@ -698,7 +688,7 @@ public class ApplicantInformation   {
     this.permanentAddress = permanentAddress;
   }
 
-  public ApplicantInformation id(BigDecimal id) {
+  public ApplicantInformation id(Integer id) {
     this.id = id;
     return this;
   }
@@ -709,13 +699,12 @@ public class ApplicantInformation   {
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 @Size(max=10) 
-  public BigDecimal getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(BigDecimal id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

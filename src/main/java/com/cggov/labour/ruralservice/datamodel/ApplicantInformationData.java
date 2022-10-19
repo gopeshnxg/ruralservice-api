@@ -28,7 +28,7 @@ public class ApplicantInformationData implements Serializable  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "applicant_information_id")
-	private long applicantInfoId;
+	private int applicantInfoId;
 
 		// variable name 
 	@Column(name = "name")
@@ -315,13 +315,13 @@ public class ApplicantInformationData implements Serializable  {
 		this.applicantAddressData = applicantAddressData;
 	}
 
-	public long getApplicantInfoId() {
+	public int getApplicantInfoId() {
 		return applicantInfoId;
 	}
 	
 	// no set for id ???? 
 
-	public void setApplicantInfoId(long id) {
+	public void setApplicantInfoId(int id) {
 		
 		
 		this.applicantInfoId= id;

@@ -83,20 +83,16 @@ components:
         pmjjyMoney:
           type: boolean
         karyaSwaroop:
-          type: number
-          format: integer
+          type: integer
           maxLength: 2
         karyaPrakriti1:
-          type: number
-          format: integer
+          type: integer
           maxLength: 3
         karyaPrakriti2:
-          type: number
-          format: integer
+          type: integer
           maxLength: 3
         karyaPrakriti3:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 3
         name:
           type: string
@@ -108,30 +104,25 @@ components:
           type: string
           maxLength: 120
         fatherORhusband:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 1
         motherName:
           type: string
           maxLength: 120
         gender:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 1
         marriage:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 1
         dob:
           type: string
           maxLength: 10
         age:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 3
         caste:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 1
         manrega:
           type: boolean
@@ -172,7 +163,7 @@ components:
         permanentAddress:
           $ref: '#/components/schemas/ApplicantPermanentAddress'
         id:
-          type: number
+          type: integer
           format: bigint
           maxLength: 10
     ApplicantAddress:
@@ -189,26 +180,21 @@ components:
        - houseNo
       properties:
         district:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 3
         selectedAddressType:    
-          type: number
+          type: integer
         vidhansabhaArea:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 3
         vikasKhand:
-          type: number
-          format: integer
+          type: integer       
           maxLength: 3
         panchayat:
-          type: number
-          format: integer
+          type: integer
           maxLength: 3
         ward:
-          type: number
-          format: integer
+          type: integer
           maxLength: 3
         address:
           type: string
