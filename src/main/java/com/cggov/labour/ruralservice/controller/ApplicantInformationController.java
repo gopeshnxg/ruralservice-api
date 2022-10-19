@@ -6,12 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.datamodel.ApplicantInformationData;
+import com.cggov.labour.ruralservice.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.service.ApplicantInformationService;
 
 @RestController
@@ -22,22 +23,8 @@ public class ApplicantInformationController {
 	ApplicantInformationService applicantInformationService;
 
 	
-	@GetMapping(value = "/applicantinformation", params="name" )
-	ApplicantInformation getApplicantInformation(@RequestParam String name) {  // GET http://localhost:8080/applicantinformation?name=abc
-		
-		
-		ApplicantInformation applicantInfo = new ApplicantInformation(1, name);
-		
-		
-		return applicantInfo;
-		
-	}
-	
 	
 	/**
-	 * 
-	 * 
-	 * 
 	 * 
 	*/
 	@GetMapping(value = "/applicantinformation/{applicantId}" )
@@ -85,6 +72,23 @@ public class ApplicantInformationController {
 		}
 		
 	}
+	
+	@PutMapping(value="/applicantinformation", consumes="application/json", produces = "application/json")
+	ResponseEntity<ApplicantInformation>  updateApplicantInformation(@RequestBody ApplicantInformation applicantInfo) {
+		
+		System.out.println("Inside Controller updateApplicantInformation to perform PUT");
+		System.out.println("applicantInfo=="+applicantInfo);
+		System.out.println("applicantInfoId=="+applicantInfo.getId());
+		System.out.println("applicantInfoName=="+applicantInfo.getName());
+		
+		ApplicantInformation applicantInformation = applicantInformationService.updateApplicationInformation(applicantInfo);
+		
+		ResponseEntity<ApplicantInformation> response = new ResponseEntity<>(applicantInformation, HttpStatus.OK);
+
+		return response;
+		
+	}
+	
 
 
 }

@@ -1,0 +1,235 @@
+openapi: 3.0.1
+info:
+  title: Rural Services API
+  description: 'This is a Rural Services module. You can find out more about Rural Services at [http://ruralservices.io](http://ruralservices.io) or on [www.ruralservices.gov.in, #ruralservices](http://swagger.io/irc/).'
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Rural Services
+  url: http://swagger.io
+servers:
+  - url: https://localhost:8080/v1/api/nxg-ecomm
+  - url: http://localhost:8080/v1/api/nxg-ecomm
+tags:
+  - name: Rural Services API
+    description: Everything about Rural Services
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /applicantinformation:
+    post:
+      tags:
+        - Applicant Information
+      summary: Adding a new applicant
+      requestBody:
+        description: Applicant details that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicantInformation'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content: {}      
+        '400':
+          description: Bad request input
+          content: {}
+        '404':
+          description: Data not found
+          content: {}
+        '500':
+          description: Invalid input
+          content: {}          
+        '502':
+          description: Bad Gatway
+          content: {}               
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    ApplicantInformation:
+      type: object
+      required:
+       - karyaSwaroop
+       - karyaPrakriti1
+       - karyaPrakriti2
+       - name
+       - nameasAADHAR
+       - fatherNameorHusbandName
+       - fatherORhusband
+       - motherName
+       - gender
+       - marriage
+       - dob
+       - age
+       - caste
+       - ration
+       - voterId
+       - rsBy
+       - aadharCard
+       - bankName
+       - branchName
+       - acNumber
+       - ifsCode
+       - esiNumber
+       - epfNumber
+      properties:
+        pmjjyMoney:
+          type: boolean
+        karyaSwaroop:
+          type: number
+          format: integer
+          maxLength: 2
+        karyaPrakriti1:
+          type: number
+          format: integer
+          maxLength: 3
+        karyaPrakriti2:
+          type: number
+          format: integer
+          maxLength: 3
+        karyaPrakriti3:
+          type: number
+          format: integer
+          maxLength: 3
+        name:
+          type: string
+          maxLength: 120
+        nameasAADHAR:
+          type: string
+          maxLength: 120
+        fatherNameorHusbandName:
+          type: string
+          maxLength: 120
+        fatherORhusband:
+          type: number
+          format: integer
+          maxLength: 1
+        motherName:
+          type: string
+          maxLength: 120
+        gender:
+          type: number
+          format: integer
+          maxLength: 1
+        marriage:
+          type: number
+          format: integer
+          maxLength: 1
+        dob:
+          type: string
+          maxLength: 10
+        age:
+          type: number
+          format: integer
+          maxLength: 3
+        caste:
+          type: number
+          format: integer
+          maxLength: 1
+        manrega:
+          type: boolean
+        ration:
+          type: string
+          maxLength: 50
+        voterId:
+          type: string
+          maxLength: 50
+        rsBy:
+          type: string
+          maxLength: 50
+        aadharCard:
+          type: number
+          format: bigint
+          maxLength: 12
+        bankName:
+          type: string
+          maxLength: 50
+        branchName:
+          type: string
+          maxLength: 50
+        acNumber:
+          type: number
+          format: bigint
+          maxLength: 25
+        ifsCode:
+          type: string
+          maxLength: 15
+        esiNumber:
+          type: string
+          format: varchar
+          maxLength: 12
+        epfNumber:
+          type: string
+          format: varchar
+          maxLength: 12
+        currentAddress:
+          $ref: '#/components/schemas/ApplicantCurrentAddress'
+        permanentAddress:
+          $ref: '#/components/schemas/ApplicantPermanentAddress'
+        id:
+          type: number
+          format: bigint
+          maxLength: 10
+    ApplicantAddress:
+      type: object
+      required:
+       - district
+       - gramin
+       - shehri
+       - vidhansabhaArea
+       - vikasKhand
+       - panchayat
+       - ward
+       - address
+       - houseNo
+       - mobile1
+      properties:
+        district:
+          type: number
+          format: integer
+          maxLength: 3
+        gramin:    
+          type: boolean
+        shehri:    
+          type: boolean    
+        vidhansabhaArea:
+          type: number
+          format: integer
+          maxLength: 3
+        vikasKhand:
+          type: number
+          format: integer
+          maxLength: 3
+        panchayat:
+          type: number
+          format: integer
+          maxLength: 3
+        ward:
+          type: number
+          format: integer
+          maxLength: 3
+        address:
+          type: string
+          maxLength: 200
+        houseNo:
+          type: string
+          maxLength: 50
+        mobile1:
+          type: number
+          format: bigint
+          maxLength: 10
+        mobile2:
+          type: number
+          format: bigint
+          maxLength: 10
+    ApplicantCurrentAddress:
+      $ref: '#/components/schemas/ApplicantAddress'
+    ApplicantPermanentAddress:
+      $ref: '#/components/schemas/ApplicantAddress'
