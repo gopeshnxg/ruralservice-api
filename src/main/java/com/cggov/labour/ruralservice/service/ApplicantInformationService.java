@@ -125,6 +125,7 @@ public class ApplicantInformationService {
 			System.out.println("id === " + applicantInformationData.getApplicantInfoId());
 
 			applicantInformation = new ApplicantInformation();
+			applicantInformation.setId(BigDecimal.valueOf(applicantInformationData.getApplicantInfoId()));
 			
 			return applicantInformation;
 

@@ -58,18 +58,18 @@ public class ApplicantInformationController {
 	 * }
 	 * */
 	@PostMapping(value = "/applicantinformation", consumes = "application/json", produces = "application/json")    
-	ResponseEntity<ApplicantInformation> createApplicantInformation(@RequestBody ApplicantInformation applicantInfo) {
+	ResponseEntity<Object> createApplicantInformation(@RequestBody ApplicantInformation applicantInfo) {
 		
 		
 		try {
 			ApplicantInformation applicantInformation = applicantInformationService.createApplicantInformation(applicantInfo);
 			
-			return new ResponseEntity<>(applicantInformation, HttpStatus.CREATED);
-			
-		} catch (Exception e) {
+			return  ResponseHandler.generateResponse("Successfully added data!", HttpStatus.CREATED, applicantInformation);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
 
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
 		
 	}
 	
