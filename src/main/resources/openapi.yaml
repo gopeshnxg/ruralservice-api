@@ -145,9 +145,8 @@ components:
           type: string
           maxLength: 50
         aadharCard:
-          type: number
-          format: bigint
-          maxLength: 12
+          type: string
+          maxLength: 50
         bankName:
           type: string
           maxLength: 50
@@ -155,8 +154,7 @@ components:
           type: string
           maxLength: 50
         acNumber:
-          type: number
-          format: bigint
+          type: string
           maxLength: 25
         ifsCode:
           type: string
@@ -189,16 +187,13 @@ components:
        - ward
        - address
        - houseNo
-       - mobile1
       properties:
         district:
           type: number
           format: integer
           maxLength: 3
-        gramin:    
-          type: boolean
-        shehri:    
-          type: boolean    
+        selectedAddressType:    
+          type: number
         vidhansabhaArea:
           type: number
           format: integer

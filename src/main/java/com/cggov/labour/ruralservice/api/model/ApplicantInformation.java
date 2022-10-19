@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * ApplicantInformation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T10:47:44.053601-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T14:11:42.158790-04:00[America/New_York]")
 
 public class ApplicantInformation   {
   @JsonProperty("pmjjyMoney")
@@ -75,7 +75,7 @@ public class ApplicantInformation   {
   private String rsBy;
 
   @JsonProperty("aadharCard")
-  private BigDecimal aadharCard;
+  private String aadharCard;
 
   @JsonProperty("bankName")
   private String bankName;
@@ -84,7 +84,7 @@ public class ApplicantInformation   {
   private String branchName;
 
   @JsonProperty("acNumber")
-  private BigDecimal acNumber;
+  private String acNumber;
 
   @JsonProperty("ifsCode")
   private String ifsCode;
@@ -509,7 +509,7 @@ public class ApplicantInformation   {
     this.rsBy = rsBy;
   }
 
-  public ApplicantInformation aadharCard(BigDecimal aadharCard) {
+  public ApplicantInformation aadharCard(String aadharCard) {
     this.aadharCard = aadharCard;
     return this;
   }
@@ -521,13 +521,12 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
-@Size(max=12) 
-  public BigDecimal getAadharCard() {
+@Size(max=50) 
+  public String getAadharCard() {
     return aadharCard;
   }
 
-  public void setAadharCard(BigDecimal aadharCard) {
+  public void setAadharCard(String aadharCard) {
     this.aadharCard = aadharCard;
   }
 
@@ -573,7 +572,7 @@ public class ApplicantInformation   {
     this.branchName = branchName;
   }
 
-  public ApplicantInformation acNumber(BigDecimal acNumber) {
+  public ApplicantInformation acNumber(String acNumber) {
     this.acNumber = acNumber;
     return this;
   }
@@ -585,13 +584,12 @@ public class ApplicantInformation   {
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
-  @Valid
 @Size(max=25) 
-  public BigDecimal getAcNumber() {
+  public String getAcNumber() {
     return acNumber;
   }
 
-  public void setAcNumber(BigDecimal acNumber) {
+  public void setAcNumber(String acNumber) {
     this.acNumber = acNumber;
   }
 

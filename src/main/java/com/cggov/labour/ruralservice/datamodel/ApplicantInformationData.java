@@ -1,6 +1,7 @@
 package com.cggov.labour.ruralservice.datamodel;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,45 +33,71 @@ public class ApplicantInformationData implements Serializable  {
 		// variable name 
 	@Column(name = "name")
 	private String name;
+
 	@Column(name = "pmjjy_money")
 	private 	boolean		pmjjyMoney	;
 	@Column(name = "karya_swaroop")
 	private 	int		karyaSwaroop	;
-	@Column(name = "name")
+	@Column(name = "karya_Prakriti1")
 	private 	int		karyaPrakriti1	;
-	@Column(name = "name")
+	@Column(name = "karya_Prakriti2")
 	private 	int		karyaPrakriti2	;
 
-	@Column(name = "name")
+	@Column(name = "karya_Prakriti3")
 	private 	int		karyaPrakriti3	;
 
-	@Column(name = "name")
-	private 	String		nameasAADHAR	;
-	@Column(name = "name")
+	@Column(name = "name_as_AADHAR")
+	private 	String		nameAsAADHAR	;
+	@Column(name = "father_or_Husband_Name")
 	private 	String		fatherNameorHusbandName	;
-	@Column(name = "name")
+	@Column(name = "father_OR_husband")
 	private 	int		fatherORhusband	;
-	@Column(name = "name")
+	@Column(name = "mother_Name")
 	private 	String		motherName	;
-	@Column(name = "name")
+	@Column(name = "gender")
 	private 	int		gender	;
-	@Column(name = "name")
+	@Column(name = "marriage")
 	private 	int		marriage	;
-	@Column(name = "name")
-	private 	String		dob	;
-	@Column(name = "name")
+	@Column(name = "dob")
+	private 	Date		dob	;
+	@Column(name = "age")
 	private 	int		age	;
-	@Column(name = "name")
+	@Column(name = "caste")
 	private 	int		caste	;
-	@Column(name = "name")
+	@Column(name = "manrega")
 	private 	boolean		manrega	;
-	@Column(name = "name")	
+	@Column(name = "ration_card_number")	
 	private 	String		ration	;
-	@Column(name = "name")	
+	@Column(name = "voter_Id")	
 	private 	String		voterId	;
-	@Column(name = "name")
+	@Column(name = "RSBY")
 	private 	String		rsBy	;
-	public boolean isPmjjyMoney() {
+	@Column(name = "aadhar_card_number")
+	private 	String		aadharCard	;
+	@Column(name = "bank_name")
+	private 	String		bankName	;
+	@Column(name = "branch_name")
+	private 	String		branchName	;
+	@Column(name = "ac_number")
+	private 	String		acNumber	;
+	@Column(name = "ifs_code")
+	private 	String		ifsCode	;
+	@Column(name = "esi_number")
+	private 	String		esiNumber	;
+	@Column(name = "epf_number")
+	private 	String		epfNumber	;
+	
+
+	@OneToMany(fetch = FetchType.LAZY , mappedBy = "applicantInformationData",
+            cascade = CascadeType.ALL)
+    private List<ApplicantAddressData> applicantAddressData;
+
+	
+	@Column(name = "STATUS")
+	private 	int		status	;
+
+	
+    public boolean isPmjjyMoney() {
 		return pmjjyMoney;
 	}
 
@@ -110,12 +137,12 @@ public class ApplicantInformationData implements Serializable  {
 		this.karyaPrakriti3 = karyaPrakriti3;
 	}
 
-	public String getNameasAADHAR() {
-		return nameasAADHAR;
+	public String getNameAsAADHAR() {
+		return nameAsAADHAR;
 	}
 
-	public void setNameasAADHAR(String nameasAADHAR) {
-		this.nameasAADHAR = nameasAADHAR;
+	public void setNameAsAADHAR(String nameasAADHAR) {
+		this.nameAsAADHAR = nameasAADHAR;
 	}
 
 	public String getFatherNameorHusbandName() {
@@ -158,11 +185,11 @@ public class ApplicantInformationData implements Serializable  {
 		this.marriage = marriage;
 	}
 
-	public String getDob() {
+	public Date getDob() {
 		return dob;
 	}
 
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 
@@ -270,26 +297,13 @@ public class ApplicantInformationData implements Serializable  {
 		this.epfNumber = epfNumber;
 	}
 
+	public int getStatus() {
+		return status;
+	}
 
-	@Column(name = "name")
-	private 	String		aadharCard	;
-	@Column(name = "name")
-	private 	String		bankName	;
-	@Column(name = "name")
-	private 	String		branchName	;
-	@Column(name = "name")
-	private 	String		acNumber	;
-	@Column(name = "name")
-	private 	String		ifsCode	;
-	@Column(name = "name")
-	private 	String		esiNumber	;
-	@Column(name = "name")
-	private 	String		epfNumber	;
-	
-	
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "applicantInformationData",
-            cascade = CascadeType.ALL)
-    private List<ApplicantAddressData> applicantAddressData;
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	//method get
 

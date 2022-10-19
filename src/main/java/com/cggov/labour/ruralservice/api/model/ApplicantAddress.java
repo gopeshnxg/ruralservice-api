@@ -13,17 +13,14 @@ import javax.validation.constraints.*;
 /**
  * ApplicantAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T10:47:44.053601-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T14:11:42.158790-04:00[America/New_York]")
 
 public class ApplicantAddress   {
   @JsonProperty("district")
   private BigDecimal district;
 
-  @JsonProperty("gramin")
-  private Boolean gramin;
-
-  @JsonProperty("shehri")
-  private Boolean shehri;
+  @JsonProperty("selectedAddressType")
+  private BigDecimal selectedAddressType;
 
   @JsonProperty("vidhansabhaArea")
   private BigDecimal vidhansabhaArea;
@@ -71,46 +68,25 @@ public class ApplicantAddress   {
     this.district = district;
   }
 
-  public ApplicantAddress gramin(Boolean gramin) {
-    this.gramin = gramin;
+  public ApplicantAddress selectedAddressType(BigDecimal selectedAddressType) {
+    this.selectedAddressType = selectedAddressType;
     return this;
   }
 
   /**
-   * Get gramin
-   * @return gramin
+   * Get selectedAddressType
+   * @return selectedAddressType
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
+  @Valid
 
-  public Boolean getGramin() {
-    return gramin;
+  public BigDecimal getSelectedAddressType() {
+    return selectedAddressType;
   }
 
-  public void setGramin(Boolean gramin) {
-    this.gramin = gramin;
-  }
-
-  public ApplicantAddress shehri(Boolean shehri) {
-    this.shehri = shehri;
-    return this;
-  }
-
-  /**
-   * Get shehri
-   * @return shehri
-  */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-
-  public Boolean getShehri() {
-    return shehri;
-  }
-
-  public void setShehri(Boolean shehri) {
-    this.shehri = shehri;
+  public void setSelectedAddressType(BigDecimal selectedAddressType) {
+    this.selectedAddressType = selectedAddressType;
   }
 
   public ApplicantAddress vidhansabhaArea(BigDecimal vidhansabhaArea) {
@@ -252,8 +228,7 @@ public class ApplicantAddress   {
    * Get mobile1
    * @return mobile1
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
   @Valid
 @Size(max=10) 
@@ -297,8 +272,7 @@ public class ApplicantAddress   {
     }
     ApplicantAddress applicantAddress = (ApplicantAddress) o;
     return Objects.equals(this.district, applicantAddress.district) &&
-        Objects.equals(this.gramin, applicantAddress.gramin) &&
-        Objects.equals(this.shehri, applicantAddress.shehri) &&
+        Objects.equals(this.selectedAddressType, applicantAddress.selectedAddressType) &&
         Objects.equals(this.vidhansabhaArea, applicantAddress.vidhansabhaArea) &&
         Objects.equals(this.vikasKhand, applicantAddress.vikasKhand) &&
         Objects.equals(this.panchayat, applicantAddress.panchayat) &&
@@ -311,7 +285,7 @@ public class ApplicantAddress   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(district, gramin, shehri, vidhansabhaArea, vikasKhand, panchayat, ward, address, houseNo, mobile1, mobile2);
+    return Objects.hash(district, selectedAddressType, vidhansabhaArea, vikasKhand, panchayat, ward, address, houseNo, mobile1, mobile2);
   }
 
   @Override
@@ -320,8 +294,7 @@ public class ApplicantAddress   {
     sb.append("class ApplicantAddress {\n");
     
     sb.append("    district: ").append(toIndentedString(district)).append("\n");
-    sb.append("    gramin: ").append(toIndentedString(gramin)).append("\n");
-    sb.append("    shehri: ").append(toIndentedString(shehri)).append("\n");
+    sb.append("    selectedAddressType: ").append(toIndentedString(selectedAddressType)).append("\n");
     sb.append("    vidhansabhaArea: ").append(toIndentedString(vidhansabhaArea)).append("\n");
     sb.append("    vikasKhand: ").append(toIndentedString(vikasKhand)).append("\n");
     sb.append("    panchayat: ").append(toIndentedString(panchayat)).append("\n");
