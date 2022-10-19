@@ -42,9 +42,9 @@ public class ApplicantAddressData implements Serializable  {
 	@Column(name="house_No")				
 	private 	String		houseNo	;
 	@Column(name="mobile1")				
-	private 	int		mobile1	;
+	private 	String		mobile1	;
 	@Column(name="mobile2")				
-	private 	int		mobile2	;
+	private 	String		mobile2	;
 	@Column(name="address_type")				
 	private 	String		addressType	;
 
@@ -116,19 +116,19 @@ public class ApplicantAddressData implements Serializable  {
 		this.houseNo = houseNo;
 	}
 
-	public int getMobile1() {
+	public String getMobile1() {
 		return mobile1;
 	}
 
-	public void setMobile1(int mobile1) {
+	public void setMobile1(String mobile1) {
 		this.mobile1 = mobile1;
 	}
 
-	public int getMobile2() {
+	public String getMobile2() {
 		return mobile2;
 	}
 
-	public void setMobile2(int mobile2) {
+	public void setMobile2(String mobile2) {
 		this.mobile2 = mobile2;
 	}
 

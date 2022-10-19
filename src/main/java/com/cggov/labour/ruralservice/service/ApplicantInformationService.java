@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.cggov.labour.ruralservice.api.model.ApplicantAddress;
@@ -92,6 +91,8 @@ public class ApplicantInformationService {
 			applicantPermAddressData.setWard(applicantPermAddress.getWard().intValue());
 			applicantPermAddressData.setAddress(applicantPermAddress.getAddress());
 			applicantPermAddressData.setHouseNo(applicantPermAddress.getHouseNo());
+			applicantPermAddressData.setMobile1(applicantPermAddress.getMobile1());
+			applicantPermAddressData.setMobile2(applicantPermAddress.getMobile2());
 
 			ApplicantAddressData applicantCurrAddressData = new ApplicantAddressData();
 			applicantCurrAddressData.setAddressType("CURRENT");
@@ -105,8 +106,8 @@ public class ApplicantInformationService {
 			applicantCurrAddressData.setWard(applicantCurrAddress.getWard().intValue());
 			applicantCurrAddressData.setAddress(applicantCurrAddress.getAddress());
 			applicantCurrAddressData.setHouseNo(applicantCurrAddress.getHouseNo());
-			applicantCurrAddressData.setMobile1(applicantCurrAddress.getMobile1().intValue());
-			applicantCurrAddressData.setMobile2(applicantCurrAddress.getMobile2().intValue());
+			applicantCurrAddressData.setMobile1(applicantCurrAddress.getMobile1());
+			applicantCurrAddressData.setMobile2(applicantCurrAddress.getMobile2());
 
 			applicantAddressDataList.add(applicantPermAddressData);
 			applicantAddressDataList.add(applicantCurrAddressData);
@@ -144,6 +145,70 @@ public class ApplicantInformationService {
 			ApplicantInformation applicantInformation = new ApplicantInformation();
 			applicantInformation.setId(BigDecimal.valueOf(applicantInformationData.getApplicantInfoId()));
 			applicantInformation.setName(applicantInformationData.getName());
+			applicantInformation.setPmjjyMoney(applicantInformationData.isPmjjyMoney());
+			applicantInformation.setKaryaSwaroop(BigDecimal.valueOf(applicantInformationData.getKaryaSwaroop()));
+			applicantInformation.setKaryaPrakriti1(BigDecimal.valueOf(applicantInformationData.getKaryaPrakriti1()));
+			applicantInformation.setKaryaPrakriti2(BigDecimal.valueOf(applicantInformationData.getKaryaPrakriti2()));
+			applicantInformation.setKaryaPrakriti3(BigDecimal.valueOf(applicantInformationData.getKaryaPrakriti3()));
+			applicantInformation.setName(applicantInformationData.getName());
+			applicantInformation.nameasAADHAR(applicantInformationData.getNameAsAADHAR());
+			applicantInformation.setFatherNameorHusbandName(applicantInformationData.getFatherNameorHusbandName());
+			applicantInformation.setFatherORhusband(BigDecimal.valueOf(applicantInformationData.getFatherORhusband()));
+			applicantInformation.setMotherName(applicantInformationData.getMotherName());
+			applicantInformation.setGender(BigDecimal.valueOf(applicantInformationData.getGender()));
+			applicantInformation.setMarriage(BigDecimal.valueOf(applicantInformationData.getMarriage()));
+			System.out.println("getDob====" + applicantInformationData.getDob());
+
+			applicantInformation.setDob(applicantInformationData.getDob().toString());
+			applicantInformation.setAge(BigDecimal.valueOf(applicantInformationData.getAge()));
+			applicantInformation.setCaste(BigDecimal.valueOf(applicantInformationData.getCaste()));
+			applicantInformation.setManrega(applicantInformationData.isManrega());
+			applicantInformation.setRation(applicantInformationData.getRation());
+			applicantInformation.setVoterId(applicantInformationData.getVoterId());
+			applicantInformation.setRsBy(applicantInformationData.getRsBy());
+			applicantInformation.setAadharCard(applicantInformationData.getAadharCard());
+			applicantInformation.setBankName(applicantInformationData.getBankName());
+			applicantInformation.setBranchName(applicantInformationData.getBranchName());
+			applicantInformation.setAcNumber(applicantInformationData.getAcNumber());
+			applicantInformation.setIfsCode(applicantInformationData.getIfsCode());
+			applicantInformation.setEsiNumber(applicantInformationData.getEsiNumber());
+			applicantInformation.setEpfNumber(applicantInformationData.getEpfNumber());
+			
+			ApplicantAddress applicantPermAddress = new ApplicantAddress();
+			ApplicantAddress applicantCurrAddress = new ApplicantAddress();
+
+			List<ApplicantAddressData> applicantAddressDataList = applicantInformationData.getApplicantAddressData();
+			for (ApplicantAddressData applicantAddressData : applicantAddressDataList) {
+				if("PERMANENT".equals(applicantAddressData.getAddressType())) { 
+					applicantPermAddress.setAddress(applicantAddressData.getAddress());
+					applicantPermAddress.setDistrict(BigDecimal.valueOf(applicantAddressData.getDistrict()));
+					applicantPermAddress.setSelectedAddressType(BigDecimal.valueOf(applicantAddressData.getSelectedAddressType()));
+					applicantPermAddress.setVidhansabhaArea(BigDecimal.valueOf(applicantAddressData.getVidhansabhaArea()));
+					applicantPermAddress.setVikasKhand(BigDecimal.valueOf(applicantAddressData.getVikasKhand()));
+					applicantPermAddress.setPanchayat(BigDecimal.valueOf(applicantAddressData.getPanchayat()));
+					applicantPermAddress.setWard(BigDecimal.valueOf(applicantAddressData.getWard()));
+					applicantPermAddress.setHouseNo(applicantAddressData.getHouseNo());
+
+					
+				}else {
+					
+					applicantCurrAddress.setAddress(applicantAddressData.getAddress());
+					applicantCurrAddress.setDistrict(BigDecimal.valueOf(applicantAddressData.getDistrict()));
+					applicantCurrAddress.setSelectedAddressType(BigDecimal.valueOf(applicantAddressData.getSelectedAddressType()));
+					applicantCurrAddress.setVidhansabhaArea(BigDecimal.valueOf(applicantAddressData.getVidhansabhaArea()));
+					applicantCurrAddress.setVikasKhand(BigDecimal.valueOf(applicantAddressData.getVikasKhand()));
+					applicantCurrAddress.setPanchayat(BigDecimal.valueOf(applicantAddressData.getPanchayat()));
+					applicantCurrAddress.setWard(BigDecimal.valueOf(applicantAddressData.getWard()));
+					applicantCurrAddress.setHouseNo(applicantAddressData.getHouseNo());
+					applicantCurrAddress.setMobile1(applicantAddressData.getMobile1());
+					applicantCurrAddress.setMobile2(applicantAddressData.getMobile2());
+
+				}
+			}
+				
+		   applicantInformation.setPermanentAddress(applicantPermAddress);
+		   applicantInformation.setCurrentAddress(applicantCurrAddress);
+
 
 			return applicantInformation;
 		} else

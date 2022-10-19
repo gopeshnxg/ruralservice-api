@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * ApplicantAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T14:11:42.158790-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T16:38:39.443431-04:00[America/New_York]")
 
 public class ApplicantAddress   {
   @JsonProperty("district")
@@ -41,10 +41,10 @@ public class ApplicantAddress   {
   private String houseNo;
 
   @JsonProperty("mobile1")
-  private BigDecimal mobile1;
+  private String mobile1;
 
   @JsonProperty("mobile2")
-  private BigDecimal mobile2;
+  private String mobile2;
 
   public ApplicantAddress district(BigDecimal district) {
     this.district = district;
@@ -219,7 +219,7 @@ public class ApplicantAddress   {
     this.houseNo = houseNo;
   }
 
-  public ApplicantAddress mobile1(BigDecimal mobile1) {
+  public ApplicantAddress mobile1(String mobile1) {
     this.mobile1 = mobile1;
     return this;
   }
@@ -230,17 +230,16 @@ public class ApplicantAddress   {
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 @Size(max=10) 
-  public BigDecimal getMobile1() {
+  public String getMobile1() {
     return mobile1;
   }
 
-  public void setMobile1(BigDecimal mobile1) {
+  public void setMobile1(String mobile1) {
     this.mobile1 = mobile1;
   }
 
-  public ApplicantAddress mobile2(BigDecimal mobile2) {
+  public ApplicantAddress mobile2(String mobile2) {
     this.mobile2 = mobile2;
     return this;
   }
@@ -251,13 +250,12 @@ public class ApplicantAddress   {
   */
   @ApiModelProperty(value = "")
 
-  @Valid
 @Size(max=10) 
-  public BigDecimal getMobile2() {
+  public String getMobile2() {
     return mobile2;
   }
 
-  public void setMobile2(BigDecimal mobile2) {
+  public void setMobile2(String mobile2) {
     this.mobile2 = mobile2;
   }
 

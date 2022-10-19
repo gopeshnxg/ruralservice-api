@@ -217,12 +217,10 @@ components:
           type: string
           maxLength: 50
         mobile1:
-          type: number
-          format: bigint
+          type: string
           maxLength: 10
         mobile2:
-          type: number
-          format: bigint
+          type: string
           maxLength: 10
     ApplicantCurrentAddress:
       $ref: '#/components/schemas/ApplicantAddress'
