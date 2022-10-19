@@ -14,21 +14,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "applicantaddress")
+@Table(name = "APPLICANT_ADDRESS")
 public class ApplicantAddressData implements Serializable  {
 
     private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="APPLICANTADDRESS_ID")
+    @Column(name="address_id")
     private long applicantAddressId;
 
     @Column(nullable = false)
     private String address;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "applicantinfo_id")
+    @JoinColumn(name = "applicant_information_id")
     private ApplicantInformationData applicantInformationData;
 
 	public long getApplicantAddressId() {

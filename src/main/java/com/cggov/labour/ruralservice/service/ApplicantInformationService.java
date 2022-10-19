@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import com.cggov.labour.ruralservice.api.model.ApplicantAddress;
+import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.datamodel.ApplicantAddressData;
 import com.cggov.labour.ruralservice.datamodel.ApplicantInformationData;
-import com.cggov.labour.ruralservice.model.ApplicantAddress;
-import com.cggov.labour.ruralservice.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.repository.ApplicantAddressRepository;
 import com.cggov.labour.ruralservice.repository.ApplicantInformationRepository;
 
@@ -34,14 +34,19 @@ public class ApplicantInformationService {
 	
 	public ApplicantInformation createApplicantInformation(ApplicantInformation applicantInfo) throws Exception {
 		
-		System.out.println("name===="+applicantInfo.getName());
 		
 		applicantInformationData = new ApplicantInformationData();
 		
 		ApplicantInformation applicantInformation;
 		applicantInformationData.setName(applicantInfo.getName());
+		System.out.println("name===="+applicantInfo.getName());
+
 		ApplicantAddress applicantPermAddress = applicantInfo.getPermanentAddress();
+		System.out.println("applicantPermAddress===="+applicantPermAddress.getAddress());
+
 		ApplicantAddress applicantCurrAddress = applicantInfo.getCurrentAddress();
+		System.out.println("applicantCurrAddress===="+applicantCurrAddress.getAddress());
+
 		
 		List<ApplicantAddressData> applicantAddressDataList = new ArrayList<ApplicantAddressData>();
 

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.datamodel.ApplicantInformationData;
-import com.cggov.labour.ruralservice.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.service.ApplicantInformationService;
 
 @RestController

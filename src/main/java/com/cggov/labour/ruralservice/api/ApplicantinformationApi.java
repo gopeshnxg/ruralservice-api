@@ -5,7 +5,7 @@
  */
 package com.cggov.labour.ruralservice.api;
 
-import com.cggov.labour.ruralservice.model.ApplicantInformation;
+import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-18T11:26:11.029615-04:00[America/New_York]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-19T10:47:44.053601-04:00[America/New_York]")
 
 @Validated
 @Api(value = "applicantinformation", description = "the applicantinformation API")
