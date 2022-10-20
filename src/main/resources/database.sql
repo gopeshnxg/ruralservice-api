@@ -19,17 +19,17 @@ CREATE TABLE applicant_information (
   ration_card_number varchar(50) DEFAULT NULL,
   voter_id varchar(50) DEFAULT NULL,
   rsby varchar(50) DEFAULT NULL,
-  aadhar_card_number INT DEFAULT NULL,
+  aadhar_card_number varchar(12) NOT NULL,
   bank_name varchar(50) NOT NULL,
   branch_name varchar(50) NOT NULL,
-  ac_number INT NOT NULL,
+  ac_number varchar(20) NOT NULL,
   ifs_code varchar(25) NOT NULL,
   esi_number varchar(12) NOT NULL,
   epf_number varchar(12) NOT NULL,
   created_by varchar(120) DEFAULT NULL,
   modified_by varchar(120) DEFAULT NULL,
   created_date timestamp NOT NULL DEFAULT current_timestamp(),
-  modified_date timestamp NULL DEFAULT NULL ON Update current_timestamp(),
+  modified_date timestamp DEFAULT NULL ON Update current_timestamp(),
   status INT NOT NULL
 ) ;
 
@@ -50,8 +50,7 @@ CREATE TABLE applicant_address (
   address_type varchar(10) NOT NULL,
   created_by varchar(120) DEFAULT NULL,
   modified_by varchar(120) DEFAULT NULL,
-  created_date timestamp NULL DEFAULT DEFAULT current_timestamp(),
+  created_date timestamp NOT NULL DEFAULT  current_timestamp(),
   modified_date timestamp NULL DEFAULT NULL ON Update current_timestamp(),
-  status int NOT NULL,
   foreign key (applicant_information_id) references applicant_information(applicant_information_id)
 );

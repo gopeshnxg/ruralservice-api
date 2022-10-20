@@ -1,6 +1,7 @@
 package com.cggov.labour.ruralservice.service;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -217,16 +218,91 @@ public class ApplicantInformationService {
 			throw new Exception(" No Data found");
 	}
 
-	public ApplicantInformation updateApplicationInformation(ApplicantInformation applicantInfo) {
+	public ApplicantInformation updateApplicationInformation(int id, ApplicantInformation applicantInfo) throws ParseException {
 
 		ApplicantInformation applicantInformation;
 
+		applicantInformationDataOptional = applicantInformationRepository.findById(id);
+		if (applicantInformationDataOptional.isPresent()) {
+			
+			applicantInformationData = applicantInformationDataOptional.get();
+			applicantInformationData.setName(applicantInfo.getName());
+			applicantInformationData.setPmjjyMoney(applicantInfo.getPmjjyMoney());
+			applicantInformationData.setKaryaSwaroop(applicantInfo.getKaryaSwaroop().intValue());
+			applicantInformationData.setKaryaPrakriti1(applicantInfo.getKaryaPrakriti1().intValue());
+			applicantInformationData.setKaryaPrakriti2(applicantInfo.getKaryaPrakriti2().intValue());
+			applicantInformationData.setKaryaPrakriti3(applicantInfo.getKaryaPrakriti3().intValue());
+			applicantInformationData.setNameAsAADHAR(applicantInfo.getNameasAADHAR());
+			applicantInformationData.setFatherNameorHusbandName(applicantInfo.getFatherNameorHusbandName());
+			applicantInformationData.setFatherORhusband(applicantInfo.getFatherORhusband().intValue());
+			applicantInformationData.setMotherName(applicantInfo.getMotherName());
+			applicantInformationData.setGender(applicantInfo.getGender().intValue());
+			applicantInformationData.setMarriage(applicantInfo.getMarriage().intValue());
+			System.out.println("getDob====" + applicantInfo.getDob());
+
+			SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+			java.util.Date date = sdf1.parse(applicantInfo.getDob());
+			java.sql.Date sqlStartDate = new java.sql.Date(date.getTime());
+			System.out.println("sqlStartDate====" +sqlStartDate);
+
+			applicantInformationData.setDob(sqlStartDate);
+			applicantInformationData.setAge(applicantInfo.getAge().intValue());
+			applicantInformationData.setCaste(applicantInfo.getCaste().intValue());
+			applicantInformationData.setManrega(applicantInfo.getManrega());
+			applicantInformationData.setRation(applicantInfo.getRation());
+			applicantInformationData.setVoterId(applicantInfo.getVoterId());
+			applicantInformationData.setRsBy(applicantInfo.getRsBy());
+			applicantInformationData.setAadharCard(applicantInfo.getAadharCard());
+			applicantInformationData.setBankName(applicantInfo.getBankName());
+			applicantInformationData.setBranchName(applicantInfo.getBranchName());
+			applicantInformationData.setAcNumber(applicantInfo.getAcNumber());
+			applicantInformationData.setIfsCode(applicantInfo.getIfsCode());
+			applicantInformationData.setEsiNumber(applicantInfo.getEsiNumber());
+			applicantInformationData.setEpfNumber(applicantInfo.getEpfNumber());
+
+			ApplicantAddress applicantPermAddress = applicantInfo.getPermanentAddress();
+			System.out.println("applicantPermAddress====" + applicantPermAddress.getAddress());
+
+			ApplicantAddress applicantCurrAddress = applicantInfo.getCurrentAddress();
+			System.out.println("applicantCurrAddress====" + applicantCurrAddress.getAddress());
+
+			List<ApplicantAddressData> applicantAddressDataList = applicantInformationData.getApplicantAddressData();
+
+			for (ApplicantAddressData applicantAddressData : applicantAddressDataList) {
+				if("PERMANENT".equals(applicantAddressData.getAddressType())) { 
+					applicantAddressData.setAddress(applicantPermAddress.getAddress());
+					applicantAddressData.setDistrict(applicantPermAddress.getDistrict());
+					applicantAddressData.setSelectedAddressType(applicantPermAddress.getSelectedAddressType());
+					applicantAddressData.setVidhansabhaArea(applicantPermAddress.getVidhansabhaArea());
+					applicantAddressData.setVikasKhand(applicantPermAddress.getVikasKhand());
+					applicantAddressData.setPanchayat(applicantPermAddress.getPanchayat());
+					applicantAddressData.setWard(applicantPermAddress.getWard());
+					applicantAddressData.setHouseNo(applicantPermAddress.getHouseNo());
+
+					
+				}else {
+					
+					applicantAddressData.setAddress(applicantCurrAddress.getAddress());
+					applicantAddressData.setDistrict(applicantCurrAddress.getDistrict());
+					applicantAddressData.setSelectedAddressType(applicantCurrAddress.getSelectedAddressType());
+					applicantAddressData.setVidhansabhaArea(applicantCurrAddress.getVidhansabhaArea());
+					applicantAddressData.setVikasKhand(applicantCurrAddress.getVikasKhand());
+					applicantAddressData.setPanchayat(applicantCurrAddress.getPanchayat());
+					applicantAddressData.setWard(applicantCurrAddress.getWard());
+					applicantAddressData.setHouseNo(applicantCurrAddress.getHouseNo());
+					applicantAddressData.setMobile1(applicantCurrAddress.getMobile1());
+					applicantAddressData.setMobile2(applicantCurrAddress.getMobile2());
+
+				}
+			}
+
+			applicantInformationData.setApplicantAddressData(applicantAddressDataList);
+
+
+		}
 		System.out.println("Indise Service Applicant Name " + applicantInfo.getName());
 
-		applicantInformationData = new ApplicantInformationData();
 
-		applicantInformationData.setName(applicantInfo.getName());
-		applicantInformationData.setApplicantInfoId(applicantInfo.getId());
 
 		applicantInformationRepository.save(applicantInformationData);
 

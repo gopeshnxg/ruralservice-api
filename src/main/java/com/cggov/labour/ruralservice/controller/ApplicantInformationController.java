@@ -1,5 +1,7 @@
 package com.cggov.labour.ruralservice.controller;
 
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,20 +75,22 @@ public class ApplicantInformationController {
 		
 	}
 	
-	@PutMapping(value="/applicantinformation", consumes="application/json", produces = "application/json")
-	ResponseEntity<ApplicantInformation>  updateApplicantInformation(@RequestBody ApplicantInformation applicantInfo) {
+	@PutMapping(value="/applicantinformation/{id}", consumes="application/json", produces = "application/json")
+	ResponseEntity<Object>  updateApplicantInformation(@PathVariable("id") int id, @RequestBody ApplicantInformation applicantInfo) {
 		
 		System.out.println("Inside Controller updateApplicantInformation to perform PUT");
 		System.out.println("applicantInfo=="+applicantInfo);
 		System.out.println("applicantInfoId=="+applicantInfo.getId());
 		System.out.println("applicantInfoName=="+applicantInfo.getName());
 		
-		ApplicantInformation applicantInformation = applicantInformationService.updateApplicationInformation(applicantInfo);
-		
-		ResponseEntity<ApplicantInformation> response = new ResponseEntity<>(applicantInformation, HttpStatus.OK);
-
-		return response;
-		
+		ApplicantInformation applicantInformation = null;
+		try {
+			applicantInformation = applicantInformationService.updateApplicationInformation(id, applicantInfo);
+			return  ResponseHandler.generateResponse("Successfully updated data!", HttpStatus.OK, applicantInformation);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
 	}
 	
 
