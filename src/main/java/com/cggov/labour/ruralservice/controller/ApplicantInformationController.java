@@ -1,23 +1,25 @@
 package com.cggov.labour.ruralservice.controller;
 
 import java.text.ParseException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
-import com.cggov.labour.ruralservice.datamodel.ApplicantInformationData;
 import com.cggov.labour.ruralservice.service.ApplicantInformationService;
 
 @RestController
+@RequestMapping(path = "/cgruralservice/api/v1")
 public class ApplicantInformationController {
 	
 	
@@ -45,6 +47,24 @@ public class ApplicantInformationController {
 		
 		
 	}
+	
+	@GetMapping(value = "/applicantinformation" )
+	ResponseEntity<Object> getAllApplicantInformation() {
+		
+		
+		try {
+			List<ApplicantInformation> applicantInformationList = applicantInformationService.getAllApplicantInformation();
+			
+			
+			return new ResponseEntity<>(applicantInformationList, HttpStatus.OK);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.NOT_FOUND, null);
+        }
+		
+		
+	}
+
 	
 	/**
 	 * method -> name: createApplicantInformation
@@ -93,6 +113,21 @@ public class ApplicantInformationController {
         }
 	}
 	
+
+	@DeleteMapping(value="/applicantinformation/{id}", consumes="application/json", produces = "application/json")
+	ResponseEntity<Object>  deleteApplicantInformation(@PathVariable("id") int id) {
+		
+		System.out.println("Inside Controller deleteApplicantInformation to perform Delete");
+
+		ApplicantInformation applicantInformation = null;
+		try {
+			applicantInformation = applicantInformationService.deleteApplicationInformation(id);
+			return  ResponseHandler.generateResponse("Successfully deleted data!", HttpStatus.OK, applicantInformation);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
+	}
 
 
 }

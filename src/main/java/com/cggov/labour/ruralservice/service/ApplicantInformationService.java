@@ -23,6 +23,9 @@ public class ApplicantInformationService {
 	ApplicantInformationData applicantInformationData;
 
 	Optional<ApplicantInformationData> applicantInformationDataOptional;
+	
+	List<ApplicantInformationData> applicantInformationDataList;
+
 
 	@Autowired
 	ApplicantInformationRepository applicantInformationRepository;
@@ -218,6 +221,98 @@ public class ApplicantInformationService {
 			throw new Exception(" No Data found");
 	}
 
+	
+	public List<ApplicantInformation> getAllApplicantInformation() throws Exception {
+
+		List<ApplicantInformation> applicantInformationList = new ArrayList<ApplicantInformation>();
+		
+		applicantInformationDataList = applicantInformationRepository.findAll();
+		
+
+		if (applicantInformationDataList.size() > 0) {
+			
+			for (ApplicantInformationData applicantInformationData : applicantInformationDataList) {
+				
+				
+				ApplicantInformation applicantInformation = new ApplicantInformation();
+				
+				applicantInformation.setId(applicantInformationData.getApplicantInfoId());
+				applicantInformation.setName(applicantInformationData.getName());
+				applicantInformation.setPmjjyMoney(applicantInformationData.isPmjjyMoney());
+				applicantInformation.setKaryaSwaroop(applicantInformationData.getKaryaSwaroop());
+				applicantInformation.setKaryaPrakriti1(applicantInformationData.getKaryaPrakriti1());
+				applicantInformation.setKaryaPrakriti2(applicantInformationData.getKaryaPrakriti2());
+				applicantInformation.setKaryaPrakriti3(applicantInformationData.getKaryaPrakriti3());
+				applicantInformation.setName(applicantInformationData.getName());
+				applicantInformation.nameasAADHAR(applicantInformationData.getNameAsAADHAR());
+				applicantInformation.setFatherNameorHusbandName(applicantInformationData.getFatherNameorHusbandName());
+				applicantInformation.setFatherORhusband(applicantInformationData.getFatherORhusband());
+				applicantInformation.setMotherName(applicantInformationData.getMotherName());
+				applicantInformation.setGender(applicantInformationData.getGender());
+				applicantInformation.setMarriage(applicantInformationData.getMarriage());
+				System.out.println("getDob====" + applicantInformationData.getDob());
+
+				applicantInformation.setDob(applicantInformationData.getDob().toString());
+				applicantInformation.setAge(applicantInformationData.getAge());
+				applicantInformation.setCaste(applicantInformationData.getCaste());
+				applicantInformation.setManrega(applicantInformationData.isManrega());
+				applicantInformation.setRation(applicantInformationData.getRation());
+				applicantInformation.setVoterId(applicantInformationData.getVoterId());
+				applicantInformation.setRsBy(applicantInformationData.getRsBy());
+				applicantInformation.setAadharCard(applicantInformationData.getAadharCard());
+				applicantInformation.setBankName(applicantInformationData.getBankName());
+				applicantInformation.setBranchName(applicantInformationData.getBranchName());
+				applicantInformation.setAcNumber(applicantInformationData.getAcNumber());
+				applicantInformation.setIfsCode(applicantInformationData.getIfsCode());
+				applicantInformation.setEsiNumber(applicantInformationData.getEsiNumber());
+				applicantInformation.setEpfNumber(applicantInformationData.getEpfNumber());
+				
+				ApplicantAddress applicantPermAddress = new ApplicantAddress();
+				ApplicantAddress applicantCurrAddress = new ApplicantAddress();
+
+				List<ApplicantAddressData> applicantAddressDataList = applicantInformationData.getApplicantAddressData();
+				for (ApplicantAddressData applicantAddressData : applicantAddressDataList) {
+					if("PERMANENT".equals(applicantAddressData.getAddressType())) { 
+						applicantPermAddress.setAddress(applicantAddressData.getAddress());
+						applicantPermAddress.setDistrict(applicantAddressData.getDistrict());
+						applicantPermAddress.setSelectedAddressType(applicantAddressData.getSelectedAddressType());
+						applicantPermAddress.setVidhansabhaArea(applicantAddressData.getVidhansabhaArea());
+						applicantPermAddress.setVikasKhand(applicantAddressData.getVikasKhand());
+						applicantPermAddress.setPanchayat(applicantAddressData.getPanchayat());
+						applicantPermAddress.setWard(applicantAddressData.getWard());
+						applicantPermAddress.setHouseNo(applicantAddressData.getHouseNo());
+
+						
+					}else {
+						
+						applicantCurrAddress.setAddress(applicantAddressData.getAddress());
+						applicantCurrAddress.setDistrict(applicantAddressData.getDistrict());
+						applicantCurrAddress.setSelectedAddressType(applicantAddressData.getSelectedAddressType());
+						applicantCurrAddress.setVidhansabhaArea(applicantAddressData.getVidhansabhaArea());
+						applicantCurrAddress.setVikasKhand(applicantAddressData.getVikasKhand());
+						applicantCurrAddress.setPanchayat(applicantAddressData.getPanchayat());
+						applicantCurrAddress.setWard(applicantAddressData.getWard());
+						applicantCurrAddress.setHouseNo(applicantAddressData.getHouseNo());
+						applicantCurrAddress.setMobile1(applicantAddressData.getMobile1());
+						applicantCurrAddress.setMobile2(applicantAddressData.getMobile2());
+
+					}
+				}
+					
+			   applicantInformation.setPermanentAddress(applicantPermAddress);
+			   applicantInformation.setCurrentAddress(applicantCurrAddress);
+			   
+			   applicantInformationList.add(applicantInformation);
+
+			}
+			
+
+
+			return applicantInformationList;
+		} else
+			throw new Exception(" No Data found");
+	}
+
 	public ApplicantInformation updateApplicationInformation(int id, ApplicantInformation applicantInfo) throws ParseException {
 
 		ApplicantInformation applicantInformation;
@@ -312,4 +407,27 @@ public class ApplicantInformationService {
 
 		return applicantInformation;
 	}
+
+	public ApplicantInformation deleteApplicationInformation(int id) {
+
+		ApplicantInformation applicantInformation;
+
+		applicantInformationDataOptional = applicantInformationRepository.findById(id);
+		if (applicantInformationDataOptional.isPresent()) {
+			
+			applicantInformationData = applicantInformationDataOptional.get();
+			applicantInformationData.setStatus(0);
+
+
+		}
+
+		applicantInformationRepository.save(applicantInformationData);
+
+		applicantInformation = new ApplicantInformation();
+		applicantInformation.setId(applicantInformationData.getApplicantInfoId());
+		applicantInformation.setName(applicantInformationData.getName());
+
+		return applicantInformation;
+	}
+
 }
