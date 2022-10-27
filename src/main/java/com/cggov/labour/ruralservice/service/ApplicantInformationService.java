@@ -226,7 +226,7 @@ public class ApplicantInformationService {
 
 		List<ApplicantInformation> applicantInformationList = new ArrayList<ApplicantInformation>();
 		
-		applicantInformationDataList = applicantInformationRepository.findAll();
+		applicantInformationDataList = applicantInformationRepository.findByStatus(1);
 		
 
 		if (applicantInformationDataList.size() > 0) {
