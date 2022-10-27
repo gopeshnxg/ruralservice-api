@@ -29,7 +29,7 @@ CREATE TABLE applicant_information (
   created_by varchar(120) DEFAULT NULL,
   modified_by varchar(120) DEFAULT NULL,
   created_date timestamp NOT NULL DEFAULT current_timestamp(),
-  modified_date timestamp DEFAULT NULL ON Update current_timestamp(),
+  modified_date timestamp NULL DEFAULT NULL ON Update current_timestamp(),
   status INT NOT NULL
 ) ;
 
