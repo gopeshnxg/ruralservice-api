@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 @RequestMapping(path = "/cgruralservice/api/v1")
-@CrossOrigin(origins = "https://ruralservice.nxgsolutions.in", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ApplicantInformationController {
 	
 	
@@ -119,7 +119,7 @@ public class ApplicantInformationController {
 	}
 	
 
-	@DeleteMapping(value="/applicantinformation/{id}", consumes="application/json", produces = "application/json")
+	@DeleteMapping(value="/applicantinformation/{id}")
 	ResponseEntity<Object>  deleteApplicantInformation(@PathVariable("id") int id) {
 		
 		System.out.println("Inside Controller deleteApplicantInformation to perform Delete");
