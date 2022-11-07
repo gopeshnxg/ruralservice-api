@@ -68,7 +68,7 @@ public class ApplicantInformationService {
 			applicantInformationData.setMarriage(applicantInfo.getMarriage().intValue());
 			System.out.println("getDob====" + applicantInfo.getDob());
 
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 			java.util.Date date = sdf1.parse(applicantInfo.getDob());
 			java.sql.Date sqlStartDate = new java.sql.Date(date.getTime());
 			System.out.println("sqlStartDate====" + sqlStartDate);
