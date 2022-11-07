@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * ApplicantInformation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-27T16:47:45.545616278Z[UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-07T14:12:12.782998-05:00[America/New_York]")
 
 public class ApplicantInformation   {
   @JsonProperty("pmjjyMoney")
@@ -31,11 +31,17 @@ public class ApplicantInformation   {
   @JsonProperty("karyaPrakriti3")
   private Integer karyaPrakriti3;
 
+  @JsonProperty("programName")
+  private Integer programName;
+
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("nameasAADHAR")
   private String nameasAADHAR;
+
+  @JsonProperty("familyHeadMemberName")
+  private String familyHeadMemberName;
 
   @JsonProperty("fatherNameorHusbandName")
   private String fatherNameorHusbandName;
@@ -94,14 +100,17 @@ public class ApplicantInformation   {
   @JsonProperty("epfNumber")
   private String epfNumber;
 
+  @JsonProperty("sameAsCurrentAddress")
+  private Boolean sameAsCurrentAddress;
+
   @JsonProperty("currentAddress")
   private ApplicantAddress currentAddress;
 
   @JsonProperty("permanentAddress")
   private ApplicantAddress permanentAddress;
 
-  @JsonProperty("id")
-  private Integer id;
+  @JsonProperty("applicantId")
+  private Integer applicantId;
 
   public ApplicantInformation pmjjyMoney(Boolean pmjjyMoney) {
     this.pmjjyMoney = pmjjyMoney;
@@ -174,8 +183,7 @@ public class ApplicantInformation   {
    * Get karyaPrakriti2
    * @return karyaPrakriti2
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 @Size(max=3) 
   public Integer getKaryaPrakriti2() {
@@ -204,6 +212,26 @@ public class ApplicantInformation   {
 
   public void setKaryaPrakriti3(Integer karyaPrakriti3) {
     this.karyaPrakriti3 = karyaPrakriti3;
+  }
+
+  public ApplicantInformation programName(Integer programName) {
+    this.programName = programName;
+    return this;
+  }
+
+  /**
+   * Get programName
+   * @return programName
+  */
+  @ApiModelProperty(value = "")
+
+@Size(max=3) 
+  public Integer getProgramName() {
+    return programName;
+  }
+
+  public void setProgramName(Integer programName) {
+    this.programName = programName;
   }
 
   public ApplicantInformation name(String name) {
@@ -246,6 +274,26 @@ public class ApplicantInformation   {
 
   public void setNameasAADHAR(String nameasAADHAR) {
     this.nameasAADHAR = nameasAADHAR;
+  }
+
+  public ApplicantInformation familyHeadMemberName(String familyHeadMemberName) {
+    this.familyHeadMemberName = familyHeadMemberName;
+    return this;
+  }
+
+  /**
+   * Get familyHeadMemberName
+   * @return familyHeadMemberName
+  */
+  @ApiModelProperty(value = "")
+
+@Size(max=120) 
+  public String getFamilyHeadMemberName() {
+    return familyHeadMemberName;
+  }
+
+  public void setFamilyHeadMemberName(String familyHeadMemberName) {
+    this.familyHeadMemberName = familyHeadMemberName;
   }
 
   public ApplicantInformation fatherNameorHusbandName(String fatherNameorHusbandName) {
@@ -646,6 +694,26 @@ public class ApplicantInformation   {
     this.epfNumber = epfNumber;
   }
 
+  public ApplicantInformation sameAsCurrentAddress(Boolean sameAsCurrentAddress) {
+    this.sameAsCurrentAddress = sameAsCurrentAddress;
+    return this;
+  }
+
+  /**
+   * Get sameAsCurrentAddress
+   * @return sameAsCurrentAddress
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Boolean getSameAsCurrentAddress() {
+    return sameAsCurrentAddress;
+  }
+
+  public void setSameAsCurrentAddress(Boolean sameAsCurrentAddress) {
+    this.sameAsCurrentAddress = sameAsCurrentAddress;
+  }
+
   public ApplicantInformation currentAddress(ApplicantAddress currentAddress) {
     this.currentAddress = currentAddress;
     return this;
@@ -688,24 +756,24 @@ public class ApplicantInformation   {
     this.permanentAddress = permanentAddress;
   }
 
-  public ApplicantInformation id(Integer id) {
-    this.id = id;
+  public ApplicantInformation applicantId(Integer applicantId) {
+    this.applicantId = applicantId;
     return this;
   }
 
   /**
-   * Get id
-   * @return id
+   * Get applicantId
+   * @return applicantId
   */
   @ApiModelProperty(value = "")
 
 @Size(max=10) 
-  public Integer getId() {
-    return id;
+  public Integer getApplicantId() {
+    return applicantId;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setApplicantId(Integer applicantId) {
+    this.applicantId = applicantId;
   }
 
 
@@ -723,8 +791,10 @@ public class ApplicantInformation   {
         Objects.equals(this.karyaPrakriti1, applicantInformation.karyaPrakriti1) &&
         Objects.equals(this.karyaPrakriti2, applicantInformation.karyaPrakriti2) &&
         Objects.equals(this.karyaPrakriti3, applicantInformation.karyaPrakriti3) &&
+        Objects.equals(this.programName, applicantInformation.programName) &&
         Objects.equals(this.name, applicantInformation.name) &&
         Objects.equals(this.nameasAADHAR, applicantInformation.nameasAADHAR) &&
+        Objects.equals(this.familyHeadMemberName, applicantInformation.familyHeadMemberName) &&
         Objects.equals(this.fatherNameorHusbandName, applicantInformation.fatherNameorHusbandName) &&
         Objects.equals(this.fatherORhusband, applicantInformation.fatherORhusband) &&
         Objects.equals(this.motherName, applicantInformation.motherName) &&
@@ -744,14 +814,15 @@ public class ApplicantInformation   {
         Objects.equals(this.ifsCode, applicantInformation.ifsCode) &&
         Objects.equals(this.esiNumber, applicantInformation.esiNumber) &&
         Objects.equals(this.epfNumber, applicantInformation.epfNumber) &&
+        Objects.equals(this.sameAsCurrentAddress, applicantInformation.sameAsCurrentAddress) &&
         Objects.equals(this.currentAddress, applicantInformation.currentAddress) &&
         Objects.equals(this.permanentAddress, applicantInformation.permanentAddress) &&
-        Objects.equals(this.id, applicantInformation.id);
+        Objects.equals(this.applicantId, applicantInformation.applicantId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pmjjyMoney, karyaSwaroop, karyaPrakriti1, karyaPrakriti2, karyaPrakriti3, name, nameasAADHAR, fatherNameorHusbandName, fatherORhusband, motherName, gender, marriage, dob, age, caste, manrega, ration, voterId, rsBy, aadharCard, bankName, branchName, acNumber, ifsCode, esiNumber, epfNumber, currentAddress, permanentAddress, id);
+    return Objects.hash(pmjjyMoney, karyaSwaroop, karyaPrakriti1, karyaPrakriti2, karyaPrakriti3, programName, name, nameasAADHAR, familyHeadMemberName, fatherNameorHusbandName, fatherORhusband, motherName, gender, marriage, dob, age, caste, manrega, ration, voterId, rsBy, aadharCard, bankName, branchName, acNumber, ifsCode, esiNumber, epfNumber, sameAsCurrentAddress, currentAddress, permanentAddress, applicantId);
   }
 
   @Override
@@ -764,8 +835,10 @@ public class ApplicantInformation   {
     sb.append("    karyaPrakriti1: ").append(toIndentedString(karyaPrakriti1)).append("\n");
     sb.append("    karyaPrakriti2: ").append(toIndentedString(karyaPrakriti2)).append("\n");
     sb.append("    karyaPrakriti3: ").append(toIndentedString(karyaPrakriti3)).append("\n");
+    sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nameasAADHAR: ").append(toIndentedString(nameasAADHAR)).append("\n");
+    sb.append("    familyHeadMemberName: ").append(toIndentedString(familyHeadMemberName)).append("\n");
     sb.append("    fatherNameorHusbandName: ").append(toIndentedString(fatherNameorHusbandName)).append("\n");
     sb.append("    fatherORhusband: ").append(toIndentedString(fatherORhusband)).append("\n");
     sb.append("    motherName: ").append(toIndentedString(motherName)).append("\n");
@@ -785,9 +858,10 @@ public class ApplicantInformation   {
     sb.append("    ifsCode: ").append(toIndentedString(ifsCode)).append("\n");
     sb.append("    esiNumber: ").append(toIndentedString(esiNumber)).append("\n");
     sb.append("    epfNumber: ").append(toIndentedString(epfNumber)).append("\n");
+    sb.append("    sameAsCurrentAddress: ").append(toIndentedString(sameAsCurrentAddress)).append("\n");
     sb.append("    currentAddress: ").append(toIndentedString(currentAddress)).append("\n");
     sb.append("    permanentAddress: ").append(toIndentedString(permanentAddress)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    applicantId: ").append(toIndentedString(applicantId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cggov.labour.ruralservice.api.model.ApplicantFamily;
 import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.service.ApplicantInformationService;
 
@@ -31,7 +34,9 @@ public class ApplicantInformationController {
 	/**
 	 * 
 	*/
-	@GetMapping(value = "/applicantinformation/{applicantId}" )
+	//@GetMapping(value = "/applicantinformation/{applicantId}" )
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.GET, path = "/applicantinformation/{applicantId}")
 	ResponseEntity<Object> getApplicantInformationById(@PathVariable int applicantId) {
 		
 		
@@ -91,7 +96,6 @@ public class ApplicantInformationController {
         	
             return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
         }
-
 		
 	}
 	
@@ -100,7 +104,7 @@ public class ApplicantInformationController {
 		
 		System.out.println("Inside Controller updateApplicantInformation to perform PUT");
 		System.out.println("applicantInfo=="+applicantInfo);
-		System.out.println("applicantInfoId=="+applicantInfo.getId());
+		System.out.println("applicantInfoId=="+applicantInfo.getApplicantId());
 		System.out.println("applicantInfoName=="+applicantInfo.getName());
 		
 		ApplicantInformation applicantInformation = null;
@@ -114,10 +118,10 @@ public class ApplicantInformationController {
 	}
 	
 
-	@DeleteMapping(value="/applicantinformation/{id}", consumes="application/json", produces = "application/json")
+	@DeleteMapping(value="/applicantinformation/{id}")
 	ResponseEntity<Object>  deleteApplicantInformation(@PathVariable("id") int id) {
 		
-		System.out.println("Inside Controller deleteApplicantInformation to perform Delete");
+		System.out.println("Inside Controller deleteApplicantInformation to perform Delete for ID=" + id);
 
 		ApplicantInformation applicantInformation = null;
 		try {
@@ -129,5 +133,35 @@ public class ApplicantInformationController {
         }
 	}
 
+	@PutMapping(value = "/applicantinformation/familymember", consumes = "application/json", produces = "application/json")    
+	ResponseEntity<Object> createOrUpdateOrDeleteApplicantMember(@RequestBody ApplicantFamily applicantFamily) {
+		
+		
+		try {
+			ApplicantFamily applicantInformation = applicantInformationService.createOrUpdateOrDeleteApplicantMember(applicantFamily);
+			
+			return  ResponseHandler.generateResponse("Successfully added data!", HttpStatus.CREATED, applicantFamily);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
+        }
+		
+	}
+
+	@GetMapping(value = "/applicantinformation/{applicantid}/familymember")    
+	ResponseEntity<Object> getApplicantMember(@PathVariable("applicantid") int applicantid) {
+		
+		
+		try {
+			System.out.println(" Get member for applicant Id " + applicantid);
+			ApplicantFamily applicantFamily = applicantInformationService.getApplicantMember(applicantid);
+			
+			return new ResponseEntity<>(applicantFamily, HttpStatus.OK);
+        } catch (Exception e) {
+        	
+            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.NOT_FOUND, null);
+        }
+		
+	}
 
 }

@@ -51,6 +51,120 @@ paths:
           description: Bad Gatway
           content: {}               
       x-codegen-request-body-name: body
+  /applicantinformation/familymember/:
+    post:
+      tags:
+        - Applicant Information Member
+      summary: Adding a new member for the applicant
+      requestBody:
+        description: Member details that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicantFamily'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content: {}      
+        '400':
+          description: Bad request input
+          content: {}
+        '404':
+          description: Data not found
+          content: {}
+        '500':
+          description: Invalid input
+          content: {}          
+        '502':
+          description: Bad Gatway
+          content: {}               
+      x-codegen-request-body-name: body
+    get:
+      tags:
+        - Applicant Information Member
+      summary: Adding a new member for the applicant
+      responses:
+        '201':
+          description: Successful
+          content: {}      
+        '400':
+          description: Bad request input
+          content: {}
+        '404':
+          description: Data not found
+          content: {}
+        '500':
+          description: Invalid input
+          content: {}          
+        '502':
+          description: Bad Gatway
+          content: {}               
+      x-codegen-request-body-name: body
+
+  /applicantinformation/familymember/{memberId}:
+    put:
+      tags:
+        - Applicant Information Member
+      summary: Adding a new member for the applicant
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Member details that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicantFamily'
+        required: true
+      responses:
+        '201':
+          description: Successful
+          content: {}      
+        '400':
+          description: Bad request input
+          content: {}
+        '404':
+          description: Data not found
+          content: {}
+        '500':
+          description: Invalid input
+          content: {}          
+        '502':
+          description: Bad Gatway
+          content: {}               
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Applicant Information Member
+      summary: Adding a new member for the applicant
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Successful
+          content: {}      
+        '400':
+          description: Bad request input
+          content: {}
+        '404':
+          description: Data not found
+          content: {}
+        '500':
+          description: Invalid input
+          content: {}          
+        '502':
+          description: Bad Gatway
+          content: {}               
+      x-codegen-request-body-name: body
+      
 components:
   schemas:
     ApplicantInformation:
@@ -58,7 +172,6 @@ components:
       required:
        - karyaSwaroop
        - karyaPrakriti1
-       - karyaPrakriti2
        - name
        - nameasAADHAR
        - fatherNameorHusbandName
@@ -94,10 +207,16 @@ components:
         karyaPrakriti3:
           type: integer       
           maxLength: 3
+        programName:
+          type: integer
+          maxLength: 3
         name:
           type: string
           maxLength: 120
         nameasAADHAR:
+          type: string
+          maxLength: 120
+        familyHeadMemberName:
           type: string
           maxLength: 120
         fatherNameorHusbandName:
@@ -158,11 +277,13 @@ components:
           type: string
           format: varchar
           maxLength: 12
+        sameAsCurrentAddress:
+          type: boolean
         currentAddress:
           $ref: '#/components/schemas/ApplicantCurrentAddress'
         permanentAddress:
           $ref: '#/components/schemas/ApplicantPermanentAddress'
-        id:
+        applicantId:
           type: integer
           format: bigint
           maxLength: 10
@@ -212,3 +333,51 @@ components:
       $ref: '#/components/schemas/ApplicantAddress'
     ApplicantPermanentAddress:
       $ref: '#/components/schemas/ApplicantAddress'
+    ApplicantFamily:
+      type: object
+      properties: 
+        applicantId:
+          type: integer
+          format: bigint
+          maxLength: 10
+        members:
+          type: array
+          required:
+          - memberId
+          - memberName
+          - memberDOB
+          - age
+          - memberGender
+          items:
+            type: object
+            properties:
+              memberId: 
+                type: integer
+                format: bigint
+                maxLength: 10
+              memberName:
+                type: string
+              relation:
+                type: integer  
+              memberDOB:
+                type: string
+              age:
+                type: integer
+              memberGender:
+                type: integer
+              memberAadhar:
+                type: string
+              nominee:
+                type: boolean
+              memberPercentDistribution:
+                type: integer 
+              memberEducation:
+                type: integer 
+              memberSchoolGrade:
+                type: integer 
+              memberMaritalStatus:
+                type: integer 
+              programName:  
+                type: integer 
+              status:  
+                type: integer 

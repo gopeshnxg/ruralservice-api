@@ -5,6 +5,7 @@
  */
 package com.cggov.labour.ruralservice.api;
 
+import com.cggov.labour.ruralservice.api.model.ApplicantFamily;
 import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-10-27T16:47:45.545616278Z[UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-11-07T14:12:12.782998-05:00[America/New_York]")
 
 @Validated
 @Api(value = "applicantinformation", description = "the applicantinformation API")
@@ -36,6 +37,128 @@ public interface ApplicantinformationApi {
     default Optional<NativeWebRequest> getRequest() {
         return Optional.empty();
     }
+
+    /**
+     * GET /applicantinformation/familymember/ : Adding a new member for the applicant
+     *
+     * @return Successful (status code 201)
+     *         or Bad request input (status code 400)
+     *         or Data not found (status code 404)
+     *         or Invalid input (status code 500)
+     *         or Bad Gatway (status code 502)
+     */
+    @ApiOperation(value = "Adding a new member for the applicant", nickname = "applicantinformationFamilymemberGet", notes = "", tags={ "Applicant Information Member", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 201, message = "Successful"),
+        @ApiResponse(code = 400, message = "Bad request input"),
+        @ApiResponse(code = 404, message = "Data not found"),
+        @ApiResponse(code = 500, message = "Invalid input"),
+        @ApiResponse(code = 502, message = "Bad Gatway") })
+    @RequestMapping(value = "/applicantinformation/familymember/",
+        method = RequestMethod.GET)
+    default ResponseEntity<Void> _applicantinformationFamilymemberGet() {
+        return applicantinformationFamilymemberGet();
+    }
+
+    // Override this method
+    default  ResponseEntity<Void> applicantinformationFamilymemberGet() {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * DELETE /applicantinformation/familymember/{memberId} : Adding a new member for the applicant
+     *
+     * @param memberId  (required)
+     * @return Successful (status code 201)
+     *         or Bad request input (status code 400)
+     *         or Data not found (status code 404)
+     *         or Invalid input (status code 500)
+     *         or Bad Gatway (status code 502)
+     */
+    @ApiOperation(value = "Adding a new member for the applicant", nickname = "applicantinformationFamilymemberMemberIdDelete", notes = "", tags={ "Applicant Information Member", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 201, message = "Successful"),
+        @ApiResponse(code = 400, message = "Bad request input"),
+        @ApiResponse(code = 404, message = "Data not found"),
+        @ApiResponse(code = 500, message = "Invalid input"),
+        @ApiResponse(code = 502, message = "Bad Gatway") })
+    @RequestMapping(value = "/applicantinformation/familymember/{memberId}",
+        method = RequestMethod.DELETE)
+    default ResponseEntity<Void> _applicantinformationFamilymemberMemberIdDelete(@ApiParam(value = "",required=true) @PathVariable("memberId") Integer memberId) {
+        return applicantinformationFamilymemberMemberIdDelete(memberId);
+    }
+
+    // Override this method
+    default  ResponseEntity<Void> applicantinformationFamilymemberMemberIdDelete(Integer memberId) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * PUT /applicantinformation/familymember/{memberId} : Adding a new member for the applicant
+     *
+     * @param memberId  (required)
+     * @param body Member details that needs to be added (required)
+     * @return Successful (status code 201)
+     *         or Bad request input (status code 400)
+     *         or Data not found (status code 404)
+     *         or Invalid input (status code 500)
+     *         or Bad Gatway (status code 502)
+     */
+    @ApiOperation(value = "Adding a new member for the applicant", nickname = "applicantinformationFamilymemberMemberIdPut", notes = "", tags={ "Applicant Information Member", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 201, message = "Successful"),
+        @ApiResponse(code = 400, message = "Bad request input"),
+        @ApiResponse(code = 404, message = "Data not found"),
+        @ApiResponse(code = 500, message = "Invalid input"),
+        @ApiResponse(code = 502, message = "Bad Gatway") })
+    @RequestMapping(value = "/applicantinformation/familymember/{memberId}",
+        consumes = { "application/json" },
+        method = RequestMethod.PUT)
+    default ResponseEntity<Void> _applicantinformationFamilymemberMemberIdPut(@ApiParam(value = "",required=true) @PathVariable("memberId") Integer memberId,@ApiParam(value = "Member details that needs to be added" ,required=true )  @Valid @RequestBody ApplicantFamily body) {
+        return applicantinformationFamilymemberMemberIdPut(memberId, body);
+    }
+
+    // Override this method
+    default  ResponseEntity<Void> applicantinformationFamilymemberMemberIdPut(Integer memberId, ApplicantFamily body) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    /**
+     * POST /applicantinformation/familymember/ : Adding a new member for the applicant
+     *
+     * @param body Member details that needs to be added (required)
+     * @return Successful (status code 201)
+     *         or Bad request input (status code 400)
+     *         or Data not found (status code 404)
+     *         or Invalid input (status code 500)
+     *         or Bad Gatway (status code 502)
+     */
+    @ApiOperation(value = "Adding a new member for the applicant", nickname = "applicantinformationFamilymemberPost", notes = "", tags={ "Applicant Information Member", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 201, message = "Successful"),
+        @ApiResponse(code = 400, message = "Bad request input"),
+        @ApiResponse(code = 404, message = "Data not found"),
+        @ApiResponse(code = 500, message = "Invalid input"),
+        @ApiResponse(code = 502, message = "Bad Gatway") })
+    @RequestMapping(value = "/applicantinformation/familymember/",
+        consumes = { "application/json" },
+        method = RequestMethod.POST)
+    default ResponseEntity<Void> _applicantinformationFamilymemberPost(@ApiParam(value = "Member details that needs to be added" ,required=true )  @Valid @RequestBody ApplicantFamily body) {
+        return applicantinformationFamilymemberPost(body);
+    }
+
+    // Override this method
+    default  ResponseEntity<Void> applicantinformationFamilymemberPost(ApplicantFamily body) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
 
     /**
      * POST /applicantinformation : Adding a new applicant

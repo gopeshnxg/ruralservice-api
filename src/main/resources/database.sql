@@ -29,7 +29,7 @@ CREATE TABLE applicant_information (
   created_by varchar(120) DEFAULT NULL,
   modified_by varchar(120) DEFAULT NULL,
   created_date timestamp NOT NULL DEFAULT current_timestamp(),
-  modified_date timestamp NULL DEFAULT NULL ON Update current_timestamp(),
+  modified_date timestamp DEFAULT NULL ON Update current_timestamp(),
   status INT NOT NULL
 ) ;
 
@@ -54,3 +54,27 @@ CREATE TABLE applicant_address (
   modified_date timestamp NULL DEFAULT NULL ON Update current_timestamp(),
   foreign key (applicant_information_id) references applicant_information(applicant_information_id)
 );
+
+CREATE TABLE  APPLICANT_FAMILY_MEMBER {
+	member_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  	applicant_information_id int NOT NULL,
+	name	varchar(120)		NOT NULL	,
+	relation	int	NOT NULL,
+	dob	Date		not null,
+	age	int not null,
+	gender	int	not null,
+	aadhar_card_number	varchar(12) not null,
+	nominee	int ,
+	nominee_percentage	int ,
+	education 	int	not null,
+	school_grade	int,
+	marital_status	int not null,
+	program_name	int	,		
+	status int default 0,
+	  created_by varchar(120) DEFAULT NULL,
+  modified_by varchar(120) DEFAULT NULL,
+  created_date timestamp NOT NULL DEFAULT  current_timestamp(),
+  modified_date timestamp NULL DEFAULT NULL ON Update current_timestamp(),
+
+  	foreign key (applicant_information_id) references applicant_information(applicant_information_id)
+};

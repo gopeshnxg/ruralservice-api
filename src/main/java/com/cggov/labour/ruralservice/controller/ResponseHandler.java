@@ -15,7 +15,7 @@ public class ResponseHandler {
 		if (responseObj != null) {
 			map.put("message", message);
 			map.put("status", status.value());
-			map.put("applicantId", ((ApplicantInformation) responseObj).getId());
+			map.put("applicantId", ((ApplicantInformation) responseObj).getApplicantId());
 
 			return new ResponseEntity<Object>(map, status);
 		}
