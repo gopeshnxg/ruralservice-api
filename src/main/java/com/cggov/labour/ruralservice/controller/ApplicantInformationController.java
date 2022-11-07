@@ -20,11 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cggov.labour.ruralservice.api.model.ApplicantFamily;
 import com.cggov.labour.ruralservice.api.model.ApplicantInformation;
 import com.cggov.labour.ruralservice.service.ApplicantInformationService;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 @RequestMapping(path = "/cgruralservice/api/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ApplicantInformationController {
 	
 	
@@ -55,9 +53,7 @@ public class ApplicantInformationController {
 		
 	}
 	
-	//@GetMapping(value = "/applicantinformation" )
-        @CrossOrigin
-        @RequestMapping(method = RequestMethod.GET, path = "/applicantinformation")
+	@GetMapping(value = "/applicantinformation" )
 	ResponseEntity<Object> getAllApplicantInformation() {
 		
 		
