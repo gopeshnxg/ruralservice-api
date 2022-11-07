@@ -133,35 +133,4 @@ public class ApplicantInformationController {
         }
 	}
 
-	@PutMapping(value = "/applicantinformation/familymember", consumes = "application/json", produces = "application/json")    
-	ResponseEntity<Object> createOrUpdateOrDeleteApplicantMember(@RequestBody ApplicantFamily applicantFamily) {
-		
-		
-		try {
-			ApplicantFamily applicantInformation = applicantInformationService.createOrUpdateOrDeleteApplicantMember(applicantFamily);
-			
-			return  ResponseHandler.generateResponse("Successfully added data!", HttpStatus.CREATED, applicantFamily);
-        } catch (Exception e) {
-        	
-            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, null);
-        }
-		
-	}
-
-	@GetMapping(value = "/applicantinformation/{applicantid}/familymember")    
-	ResponseEntity<Object> getApplicantMember(@PathVariable("applicantid") int applicantid) {
-		
-		
-		try {
-			System.out.println(" Get member for applicant Id " + applicantid);
-			ApplicantFamily applicantFamily = applicantInformationService.getApplicantMember(applicantid);
-			
-			return new ResponseEntity<>(applicantFamily, HttpStatus.OK);
-        } catch (Exception e) {
-        	
-            return ResponseHandler.generateResponse(e.getMessage(), HttpStatus.NOT_FOUND, null);
-        }
-		
-	}
-
 }
