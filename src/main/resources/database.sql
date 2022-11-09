@@ -55,7 +55,7 @@ CREATE TABLE applicant_address (
   foreign key (applicant_information_id) references applicant_information(applicant_information_id)
 );
 
-CREATE TABLE  APPLICANT_FAMILY_MEMBER (
+CREATE TABLE  applicant_family_member (
 	member_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   	applicant_information_id int NOT NULL,
 	name	varchar(120)		NOT NULL	,
