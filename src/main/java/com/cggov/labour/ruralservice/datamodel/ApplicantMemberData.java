@@ -38,7 +38,7 @@ public class ApplicantMemberData implements Serializable {
     private  String memberAadhar;
 	@Column(name = "nominee")
     private  boolean nominee;
-	@Column(name = "MEMBER_PERCENTAGE")
+	@Column(name = "nominee_percentage")
     private  int memberPercentDistribution;
 	@Column(name = "education")
     private int  memberEducation;
